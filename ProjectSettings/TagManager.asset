@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Scenary
+  - Destroyer
+  - Base
+  - Game3/UFO
+  - Game3/BulletPlayer
+  - Game3/BulletEnemy
+  - Game3/Limits
+  - Game3/Enemy
+  - Game3/Player
+  - Game2/Ball
+  - Game2/Wall
+  - Game1/Enemy
+  - Game1/Coin
+  - Game1/Walls
+  - Game1/Ground
+  - Game1/Pipe
+  - Game1/Missile
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Enemy
+  - PostProcessing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
