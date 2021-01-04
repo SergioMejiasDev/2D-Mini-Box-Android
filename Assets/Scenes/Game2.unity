@@ -1082,7 +1082,7 @@ PrefabInstance:
     - target: {fileID: 2024054841251260874, guid: b813339358c89ae45bcf947969fdb5e8,
         type: 3}
       propertyPath: m_Text
-      value: 'USE THE "UP" AND "DOWN" BUTTONS TO MOVE THE PLAYER PADDLE (LEFT).
+      value: 'USE THE "UP" AND "DOWN" BUTTONS TO MOVE THE PLAYER PADDLE.
 
 
         ADD
@@ -3021,11 +3021,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6030894753891882451, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00024414062
-      objectReference: {fileID: 0}
-    - target: {fileID: 6030894753891882451, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -3042,7 +3037,7 @@ PrefabInstance:
     - target: {fileID: 7510451543550784145, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.b
-      value: 1
+      value: 0.9137255
       objectReference: {fileID: 0}
     - target: {fileID: 7510451543550784145, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3052,7 +3047,7 @@ PrefabInstance:
     - target: {fileID: 7510451543550784145, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7510451543550784145, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3097,7 +3092,7 @@ PrefabInstance:
     - target: {fileID: 7510451543937281984, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.b
-      value: 1
+      value: 0.9137255
       objectReference: {fileID: 0}
     - target: {fileID: 7510451543937281984, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3107,7 +3102,7 @@ PrefabInstance:
     - target: {fileID: 7510451543937281984, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7510451543937281984, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3207,7 +3202,7 @@ PrefabInstance:
     - target: {fileID: 7510451545495201511, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.b
-      value: 1
+      value: 0.9137255
       objectReference: {fileID: 0}
     - target: {fileID: 7510451545495201511, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3217,7 +3212,7 @@ PrefabInstance:
     - target: {fileID: 7510451545495201511, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7510451545495201511, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3277,7 +3272,7 @@ PrefabInstance:
     - target: {fileID: 7738808760279615365, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.b
-      value: 1
+      value: 0.9137255
       objectReference: {fileID: 0}
     - target: {fileID: 7738808760279615365, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3287,7 +3282,7 @@ PrefabInstance:
     - target: {fileID: 7738808760279615365, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7738808760279615365, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}

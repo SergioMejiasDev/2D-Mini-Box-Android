@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function that manages the movement of the player.
+    /// </summary>
     void HandleMoving()
     {
         if (dontMove)
@@ -50,17 +53,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function that allows the player to move.
+    /// </summary>
+    /// <param name="leftMovement">True if the movement is to the left, false if it is to the right.</param>
     public void AllowMovement(bool leftMovement)
     {
         dontMove = false;
         moveLeft = leftMovement;
     }
 
+    /// <summary>
+    /// Function that cancels the player's movement.
+    /// </summary>
     public void DontAllowMovement()
     {
         dontMove = true;
     }
 
+    /// <summary>
+    /// Function that moves the character to the left.
+    /// </summary>
     void MoveLeft()
     {
         if (transform.position.x >= minBound)
@@ -69,6 +82,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function that moves the character to the right.
+    /// </summary>
     void MoveRight()
     {
         if (transform.position.x <= maxBound)
@@ -77,21 +93,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function that keeps the player in position.
+    /// </summary>
     void StopMoving()
     {
         transform.Translate(Vector2.right * 0 * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Function that allows the player to shoot.
+    /// </summary>
     public void AllowShoot()
     {
         canShoot = true;
     }
 
+    /// <summary>
+    /// Function that cancels the possibility of shooting.
+    /// </summary>
     public void DontAllowShoot()
     {
         canShoot = false;
     }
 
+    /// <summary>
+    /// Function that is called every time the player shoots.
+    /// </summary>
     void Shoot()
     {
         if (canShoot && (Time.time > nextFire))

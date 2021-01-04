@@ -31,6 +31,9 @@ public class Paddle : MonoBehaviour
         HandleMoving();
     }
 
+    /// <summary>
+    /// Function that manages the movement of the player.
+    /// </summary>
     void HandleMoving()
     {
         if (dontMove)
@@ -51,27 +54,43 @@ public class Paddle : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function that allows the player to move.
+    /// </summary>
+    /// <param name="upMovement">True if the movement is upwards, false if it is downwards.</param>
     public void AllowMovement(bool upMovement)
     {
         dontMove = false;
         moveUp = upMovement;
     }
 
+    /// <summary>
+    /// Function that cancels the player's movement.
+    /// </summary>
     public void DontAllowMovement()
     {
         dontMove = true;
     }
 
+    /// <summary>
+    /// Function that moves the player up.
+    /// </summary>
     void MoveUp()
     {
         rb.velocity = new Vector2(rb.velocity.x, speed);
     }
 
+    /// <summary>
+    /// Function that moves the player down.
+    /// </summary>
     void MoveDown()
     {
         rb.velocity = new Vector2(rb.velocity.x, -speed);
     }
 
+    /// <summary>
+    /// Function that keeps the player in position.
+    /// </summary>
     void StopMoving()
     {
         rb.velocity = new Vector2(rb.velocity.x, 0);

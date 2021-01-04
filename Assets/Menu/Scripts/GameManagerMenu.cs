@@ -5,11 +5,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+/// <summary>
+/// Class that controls the main functions of the menu.
+/// </summary>
 public class GameManagerMenu : MonoBehaviour
 {
     #region Variables
     [Header("Panels")]
     [SerializeField] GameObject[] panels = null;
+
+    [Header("Games")]
+    [SerializeField] GameObject[] games = null;
+    int activeGame = 0;
+    [SerializeField] GameObject arrowLeft = null;
+    [SerializeField] GameObject arrowRight = null;
 
     [Header("Options")]
     [SerializeField] AudioMixer audioMixer = null;
@@ -61,6 +70,52 @@ public class GameManagerMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// Function that changes to the previous game.
+    /// </summary>
+    public void ArrowLeft()
+    {
+        activeGame -= 1;
+
+        arrowRight.SetActive(true);
+
+        if (activeGame <= 0)
+        {
+            activeGame = 0;
+            arrowLeft.SetActive(false);
+        }
+
+        for (int i = 0; i < games.Length; i++)
+        {
+            games[i].SetActive(false);
+        }
+
+        games[activeGame].SetActive(true);
+    }
+
+    /// <summary>
+    /// Function that changes to the next game.
+    /// </summary>
+    public void ArrowRight()
+    {
+        activeGame += 1;
+
+        arrowLeft.SetActive(true);
+
+        if (activeGame >= (games.Length - 1))
+        {
+            activeGame = games.Length - 1;
+            arrowRight.SetActive(false);
+        }
+
+        for (int i = 0; i < games.Length; i++)
+        {
+            games[i].SetActive(false);
+        }
+
+        games[activeGame].SetActive(true);
+    }
+
+    /// <summary>
     /// Close the game completely.
     /// </summary>
     public void QuitGame()
@@ -102,6 +157,7 @@ public class GameManagerMenu : MonoBehaviour
         PlayerPrefs.SetInt("HighScore2-1", 0);
         PlayerPrefs.SetInt("HighScore2-2", 0);
         PlayerPrefs.SetInt("HighScore3", 0);
+        PlayerPrefs.SetInt("HighScore4", 0);
         PlayerPrefs.Save();
     }
 }
