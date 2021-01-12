@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -132,10 +131,7 @@ public class GameManager3 : MonoBehaviour
     /// </summary>
     void LoadHighScore()
     {
-        if (PlayerPrefs.HasKey("HighScore3"))
-        {
-            highScore = PlayerPrefs.GetInt("HighScore3");
-        }
+        highScore = PlayerPrefs.GetInt("HighScore3", 0);
     }
 
     /// <summary>

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -119,11 +117,8 @@ public class GameManager2 : MonoBehaviour
     /// </summary>
     public void LoadHighScore()
     {
-        if (PlayerPrefs.HasKey("HighScore2-1"))
-        {
-            highScore1 = PlayerPrefs.GetInt("HighScore2-1");
-            highScore2 = PlayerPrefs.GetInt("HighScore2-2");
-        }
+        highScore1 = PlayerPrefs.GetInt("HighScore2-1", 0);
+        highScore2 = PlayerPrefs.GetInt("HighScore2-2", 0);
 
         highScoreText.text = "HIGH SCORE: " + highScore1.ToString() + " - " + highScore2.ToString();
     }
