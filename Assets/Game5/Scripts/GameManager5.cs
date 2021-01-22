@@ -185,11 +185,13 @@ public class GameManager5 : MonoBehaviour
         if (!player1victory)
         {
             victoryText.text = "PLAYER 2 WINS";
+            victoryText.color = head2.GetComponent<SpriteRenderer>().color;
         }
 
         else
         {
             victoryText.text = "PLAYER 1 WINS";
+            victoryText.color = head.GetComponent<SpriteRenderer>().color;
         }
 
         StopAllCoroutines();

@@ -68,7 +68,7 @@ public class SnakeMovement : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
+        if ((canMove) && (Time.timeScale == 1))
         {
             ChangeDirection();            
         }
@@ -151,11 +151,13 @@ public class SnakeMovement : MonoBehaviour
                     if ((dragDistance.x > 0.8f) && (direction != -Vector2.right))
                     {
                         direction = Vector2.right;
+                        canMove = false;
                     }
 
                     else if ((dragDistance.y < -0.8f) && (direction != Vector2.up))
                     {
                         direction = -Vector2.up;
+                        canMove = false;
                     }
                 }
 
@@ -164,11 +166,13 @@ public class SnakeMovement : MonoBehaviour
                     if ((dragDistance.y > 0.8f) && (direction != -Vector2.up))
                     {
                         direction = Vector2.up;
+                        canMove = false;
                     }
 
                     else if ((dragDistance.x < -0.8f) && (direction != Vector2.right))
                     {
                         direction = -Vector2.right;
+                        canMove = false;
                     }
                 }
             }
