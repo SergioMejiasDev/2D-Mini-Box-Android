@@ -124,9 +124,8 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2021.0126
-  preloadedAssets:
-  - {fileID: 11400000, guid: 3d00dad9cac74a44fbb46b91c5006425, type: 2}
+  bundleVersion: 2021.0121
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -171,7 +170,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.SergioMejias.MiniBox2D
   buildNumber: {}
-  AndroidBundleVersionCode: 8
+  AndroidBundleVersionCode: 6
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
