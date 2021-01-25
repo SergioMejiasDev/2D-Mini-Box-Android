@@ -947,10 +947,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 657970522}
     m_Modifications:
+    - target: {fileID: 885032786503220751, guid: 6b366d1cac6655046a71374fd38f80b1,
+        type: 3}
+      propertyPath: m_Text
+      value: PAUSE
+      objectReference: {fileID: 0}
     - target: {fileID: 2100071278243415436, guid: 6b366d1cac6655046a71374fd38f80b1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493348695896134405, guid: 6b366d1cac6655046a71374fd38f80b1,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4886862364449925664, guid: 6b366d1cac6655046a71374fd38f80b1,
         type: 3}
@@ -1011,6 +1021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466731091292925568, guid: 6b366d1cac6655046a71374fd38f80b1,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5915285272965833028, guid: 6b366d1cac6655046a71374fd38f80b1,
         type: 3}
@@ -1173,7 +1188,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3eb8602856030d24fab7982345da8d85, type: 3}
+    m_Font: {fileID: 12800000, guid: 5045122b10b18884cb70319f9d318425, type: 3}
     m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 1
@@ -1375,6 +1390,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadGame
       objectReference: {fileID: 0}
+    - target: {fileID: 7510451543550784146, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7510451543937281984, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.b
@@ -1429,6 +1449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Help
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510451543937281985, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7510451543937281999, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -1503,7 +1528,7 @@ PrefabInstance:
     - target: {fileID: 7510451545495201509, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Text
-      value: Play
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7510451545495201511, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3157,12 +3182,7 @@ PrefabInstance:
     - target: {fileID: 2024054841251260874, guid: b813339358c89ae45bcf947969fdb5e8,
         type: 3}
       propertyPath: m_Text
-      value: 'USE THE "LEFT" AND "RIGHT" BUTTONS TO MOVE THE CHARACTER. WITH THE
-        "UP" BUTTON YOU CAN JUMP.
-
-
-        YOUR GOAL IS TO OBTAIN THE GREATEST NUMBER
-        OF COINS WITHOUT BEING TOUCHED BY THE ENEMIES.'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2024054841251260877, guid: b813339358c89ae45bcf947969fdb5e8,
         type: 3}
@@ -3173,6 +3193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773142334504800636, guid: b813339358c89ae45bcf947969fdb5e8,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6773142334504800637, guid: b813339358c89ae45bcf947969fdb5e8,
         type: 3}
@@ -3221,6 +3246,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b813339358c89ae45bcf947969fdb5e8, type: 3}
+--- !u!1 &1128161889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2024054841251260876, guid: b813339358c89ae45bcf947969fdb5e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128161888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1128161890 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2024054841251260874, guid: b813339358c89ae45bcf947969fdb5e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128161888}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128161889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1128161891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128161889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:9ea09945be9c6f341b16e70ddfabd335
+    m_TableEntryReference:
+      m_KeyId: 238376898560
+      m_Key: 
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1128161890}
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1144738022 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4265767337448962841, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
@@ -3822,7 +3898,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3eb8602856030d24fab7982345da8d85, type: 3}
+    m_Font: {fileID: 12800000, guid: 5045122b10b18884cb70319f9d318425, type: 3}
     m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 1
@@ -4814,6 +4890,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 657970522}
     m_Modifications:
+    - target: {fileID: 44395180427392879, guid: be97f810fbd22d04584d3630e338c57b,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 116962998653042652, guid: be97f810fbd22d04584d3630e338c57b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4878,6 +4959,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3157189486515402597, guid: be97f810fbd22d04584d3630e338c57b,
+        type: 3}
+      propertyPath: m_Text
+      value: GAME OVER
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958598040386449898, guid: be97f810fbd22d04584d3630e338c57b,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6572704568567475994, guid: be97f810fbd22d04584d3630e338c57b,
         type: 3}

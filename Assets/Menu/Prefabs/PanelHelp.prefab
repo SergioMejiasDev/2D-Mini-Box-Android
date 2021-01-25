@@ -141,7 +141,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3eb8602856030d24fab7982345da8d85, type: 3}
+    m_Font: {fileID: 12800000, guid: 5045122b10b18884cb70319f9d318425, type: 3}
     m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 1
@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 6773142334504800639}
   - component: {fileID: 6773142334504800636}
   - component: {fileID: 6773142334504800637}
+  - component: {fileID: 8180644980025014377}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -297,6 +298,39 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8180644980025014377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6773142334504800635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:1a53bf16fe04ada419e383f9e389cd95
+    m_TableEntryReference:
+      m_KeyId: 34654268608512
+      m_Key: 
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6773142334504800636}
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

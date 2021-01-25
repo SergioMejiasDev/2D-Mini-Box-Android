@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Descriptions_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 9ea09945be9c6f341b16e70ddfabd335, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 238376898560
+    m_Localized: 'Use The "Left" And "Right" Buttons To Move The Character. With
+      The "Up" Button You Can Jump.
+
+
+      Your Goal Is To Obtain The Greatest
+      Number Of Coins Without Being Touched By The Enemies.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1020320993280
+    m_Localized: 'Use The "Up" And "Down" Buttons To Move The Player Paddle.
+
+      
+
+      Add
+      A Point To The Score If The Other Player Fails To Hit The Ball.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1500195508224
+    m_Localized: 'Use The "Left" And "Right" Buttons To Move The Player''S Ship.
+      By Pressing The "Up" Button, The Ship Will Start Shooting.
+
+      
+
+      Destroy
+      As Many Enemies As Possible Before They Reach The Bases.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1961988378624
+    m_Localized: 'The Character Will Move Automatically. Drag Your Finger Across
+      The Screen In The Direction You Want To Change.
+
+      
+
+      Eat All The
+      Possible Dots Before The Enemies Reach You. Large Dots Will Allow You To Temporarily
+      Eat Enemies. Get All Possible Points.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3173848633344
+    m_Localized: 'The Snake Will Move Automatically. Drag Your Finger Across The
+      Screen In The Direction You Want To Change.
+
+      
+
+      Eat All Possible
+      Points And Avoid Crashing On The Stage Or Biting Your Tail.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3361103335424
+    m_Localized: 'Use The Left And Right Buttons To Move The Pieces From Left To
+      Right, The Up Button To Rotate Them, And The Down Button To Lower Them Faster.
+
+      
+
+      Group
+      As Much As Possible Pieces By Forming Lines Before They Reach The Top Of The
+      Screen.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Descriptions_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 9ea09945be9c6f341b16e70ddfabd335, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 238376898560
+    m_Localized: "Utiliza los botones \"Izquierda\" y \"Derecha\" para mover el personaje.
+      Con el bot\xF3n \"Arriba\" puedes saltar.\r\n\r\nTu objetivo es obtener la
+      mayor cantidad de monedas sin ser alcanzado por los enemigos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1020320993280
+    m_Localized: 'Utiliza los botones "Arriba" y "Abajo" para mover la paleta del
+      jugador.
+
+      
+
+      Sumas un punto si el otro jugador no golpea la pelota.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1500195508224
+    m_Localized: "Utiliza los botones \"Izquierda\" y \"Derecha\" para mover la nave
+      del jugador. Al presionar el bot\xF3n \"Arriba\", la nave comenzar\xE1 a disparar.\r\n\r\nDestruye
+      tantos enemigos como sea posible antes de que lleguen a las bases."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1961988378624
+    m_Localized: "El personaje se mueve autom\xE1ticamente. Arrastra el dedo por
+      la pantalla en la direcci\xF3n a la que deseas cambiar.\r\n\r\nCome todos los
+      puntos posibles antes de que los enemigos te alcancen. Los puntos grandes te
+      permitir\xE1n comer enemigos de forma temporal. Consigue todos los puntos posibles."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3173848633344
+    m_Localized: "La serpiente se mueve autom\xE1ticamente. Arrastra el dedo por
+      la pantalla en la direcci\xF3n a la que deseas cambiar.\r\n\r\nCome todos los
+      puntos posibles y evita chocar con el escenario o morderte la cola."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3361103335424
+    m_Localized: "Usa los botones \"Izquierda\" y \"Derecha\" para mover las piezas
+      de izquierda a derecha, el bot\xF3n \"Arriba\" para girarlas y el bot\xF3n
+      \"Abajo\" para descender m\xE1s r\xE1pido.\r\n\r\nAgrupa tantas piezas como
+      sea posible formando l\xEDneas horizontales antes de que lleguen a la parte
+      superior de la pantalla."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

@@ -1082,11 +1082,7 @@ PrefabInstance:
     - target: {fileID: 2024054841251260874, guid: b813339358c89ae45bcf947969fdb5e8,
         type: 3}
       propertyPath: m_Text
-      value: 'USE THE "UP" AND "DOWN" BUTTONS TO MOVE THE PLAYER PADDLE.
-
-
-        ADD
-        A POINT TO THE SCORE IF THE OTHER PLAYER FAILS TO HIT THE BALL.'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2024054841251260877, guid: b813339358c89ae45bcf947969fdb5e8,
         type: 3}
@@ -1097,6 +1093,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773142334504800636, guid: b813339358c89ae45bcf947969fdb5e8,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6773142334504800637, guid: b813339358c89ae45bcf947969fdb5e8,
         type: 3}
@@ -1146,6 +1147,57 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 868296139}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &868296141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2024054841251260876, guid: b813339358c89ae45bcf947969fdb5e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 868296139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &868296142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2024054841251260874, guid: b813339358c89ae45bcf947969fdb5e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 868296139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868296141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &868296143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868296141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:9ea09945be9c6f341b16e70ddfabd335
+    m_TableEntryReference:
+      m_KeyId: 1020320993280
+      m_Key: 
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 868296142}
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &896670511 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4265767337448962841, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
@@ -1179,6 +1231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2493348695896134405, guid: 6b366d1cac6655046a71374fd38f80b1,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4886862364449925664, guid: 6b366d1cac6655046a71374fd38f80b1,
         type: 3}
@@ -1239,6 +1296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5466731091292925568, guid: 6b366d1cac6655046a71374fd38f80b1,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5915285272965833028, guid: 6b366d1cac6655046a71374fd38f80b1,
         type: 3}
@@ -1931,7 +1993,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8ce4e3956176d034eab5ecca8555c8f4, type: 3}
+    m_Font: {fileID: 12800000, guid: 5045122b10b18884cb70319f9d318425, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 1
@@ -1982,7 +2044,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8ce4e3956176d034eab5ecca8555c8f4, type: 3}
+    m_Font: {fileID: 12800000, guid: 5045122b10b18884cb70319f9d318425, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 1
@@ -3089,6 +3151,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadScene
       objectReference: {fileID: 0}
+    - target: {fileID: 7510451543550784146, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7510451543937281984, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Colors.m_PressedColor.b
@@ -3144,6 +3211,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Help
       objectReference: {fileID: 0}
+    - target: {fileID: 7510451543937281985, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7510451543937281999, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3197,7 +3269,7 @@ PrefabInstance:
     - target: {fileID: 7510451545495201509, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
       propertyPath: m_Text
-      value: PLAY
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7510451545495201511, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
@@ -3333,6 +3405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7738808760279615366, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7738808760279615419, guid: 410d6ff076e5eb84488eed7ba4d5e4a7,
         type: 3}
