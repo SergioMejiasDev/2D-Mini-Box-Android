@@ -33,6 +33,7 @@ public class GameManager6 : MonoBehaviour
     [SerializeField] GameObject panelHelp = null;
     [SerializeField] GameObject panelControllers = null;
 
+
     #region Booleans
     /// <summary>
     /// Vector that approximates the values of another vector entered.
@@ -180,8 +181,8 @@ public class GameManager6 : MonoBehaviour
     {
         gameOverSound.Play();
         spawnerObject.SetActive(false);
-        panelControllers.SetActive(false);
         panelGameOver.SetActive(true);
+        panelControllers.SetActive(false);
 
         GameObject[] activeTetrominos = GameObject.FindGameObjectsWithTag("Game6/Tetromino");
 

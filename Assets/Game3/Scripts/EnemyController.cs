@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script that controls the movement and firing of the entire wave of enemies.
+/// Class that controls the movement and firing of the entire wave of enemies.
 /// </summary>
 public class EnemyController : MonoBehaviour
 {

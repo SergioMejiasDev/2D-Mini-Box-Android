@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that controls the missile movement.
+/// Class that controls the missile movement.
 /// </summary>
 public class EnemyMissile : MonoBehaviour
 {

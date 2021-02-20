@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that manages the pooling of different objects within the application.
+/// </summary>
 public class ObjectPooler : MonoBehaviour
 {
     [System.Serializable]

@@ -70,7 +70,7 @@ public class SnakeMovement : MonoBehaviour
     {
         if ((canMove) && (Time.timeScale == 1))
         {
-            ChangeDirection();            
+            ChangeDirection();
         }
 
         if (Input.GetButtonDown("Cancel"))

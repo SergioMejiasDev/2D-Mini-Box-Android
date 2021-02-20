@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
-/// Script to control the main functions of the game 1.
+/// Class to control the main functions of the game 1.
 /// </summary>
 public class GameManager1 : MonoBehaviour
 {
@@ -84,7 +84,6 @@ public class GameManager1 : MonoBehaviour
         panelGameOver.SetActive(false);
         panelControllers.SetActive(true);
 
-        player1.GetComponent<Player>().DontAllowMovement();
         player1.SetActive(true);
 
         if (multiplayer)
@@ -144,8 +143,8 @@ public class GameManager1 : MonoBehaviour
     /// </summary>
     public void GameOver()
     {
-        panelGameOver.SetActive(true);
         panelControllers.SetActive(false);
+        panelGameOver.SetActive(true);
         for (int i = 0; i < generators.Length; i++)
         {
             generators[i].SetActive(false);
@@ -162,7 +161,6 @@ public class GameManager1 : MonoBehaviour
         {
             panelPause.SetActive(true);
             panelControllers.SetActive(false);
-            player1.GetComponent<Player>().DontAllowMovement();
             Time.timeScale = 0;
         }
         else if (panelPause.activeSelf == true)
@@ -251,12 +249,12 @@ public class GameManager1 : MonoBehaviour
         {
             if (isPlayer1)
             {
-                player1.transform.position = new Vector2(-8.76f, -5.4f);
+                player1.transform.position = new Vector2(-6.3f, -5.4f);
                 player1.SetActive(true);
             }
             else
             {
-                player2.transform.position = new Vector2(7.5f, -5.4f);
+                player2.transform.position = new Vector2(6.3f, -5.4f);
                 player2.SetActive(true);
             }
         }

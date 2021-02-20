@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that manages the main functions of the UFO.
+/// Class that manages the main functions of the UFO.
 /// </summary>
 public class UFO : MonoBehaviour
 {
@@ -13,19 +11,17 @@ public class UFO : MonoBehaviour
     {
         int randomNumber = Random.Range(0, 3);
 
-        if (randomNumber == 0)
+        switch (randomNumber)
         {
-            score = 50;
-        }
-
-        else if (randomNumber == 1)
-        {
-            score = 100;
-        }
-
-        else if (randomNumber == 2)
-        {
-            score = 150;
+            case 0:
+                score = 50;
+                break;
+            case 1:
+                score = 100;
+                break;
+            case 2:
+                score = 150;
+                break;
         }
     }
 

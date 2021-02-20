@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that controls the enemy movement.
+/// Class that controls the enemy movement.
 /// </summary>
 public class EnemyTurtle : MonoBehaviour
 {
@@ -60,6 +58,5 @@ public class EnemyTurtle : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
     }
 }

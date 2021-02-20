@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that is responsible for the movement and destruction of the bullets.
+/// Class that is responsible for the movement and destruction of the bullets.
 /// </summary>
 public class BulletController : MonoBehaviour
 {

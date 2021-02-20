@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that manages the main functions of the player.
+/// Class that manages the main functions of the player.
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
@@ -18,12 +16,18 @@ public class PlayerController : MonoBehaviour
 
     public float nextFire;
 
+    private void OnEnable()
+    {
+        DontAllowMovement();
+        DontAllowShoot();
+    }
+
     void Update()
     {
         HandleMoving();
 
         Shoot();
-        
+
         if (Input.GetButtonDown("Cancel"))
         {
             GameManager3.manager3.PauseGame();

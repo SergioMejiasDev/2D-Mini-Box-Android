@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that manages the main functions of the bases.
+/// Class that manages the main functions of the bases.
 /// </summary>
 public class BaseHealth : MonoBehaviour
 {

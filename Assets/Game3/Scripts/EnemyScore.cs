@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that manages the score and destroying enemies individually.
+/// Class that manages the score and destroying enemies individually.
 /// </summary>
 public class EnemyScore : MonoBehaviour
 {

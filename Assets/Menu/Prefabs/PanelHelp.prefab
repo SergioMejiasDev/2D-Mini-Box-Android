@@ -34,10 +34,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12482939, y: 0.017}
-  m_AnchorMax: {x: 0.8751869, y: 0.66969794}
-  m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 351.46875, y: 226.99554}
+  m_AnchorMin: {x: 0.04675, y: 0}
+  m_AnchorMax: {x: 0.95500004, y: 0.69333607}
+  m_AnchoredPosition: {x: -0.5, y: -1.2439575}
+  m_SizeDelta: {x: 200.47107, y: 187.73047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2024054839353705061
 CanvasRenderer:
@@ -108,10 +108,10 @@ RectTransform:
   m_Father: {fileID: 2024054839353705063}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.021868253, y: 0.34237313}
-  m_AnchorMax: {x: 0.97812754, y: 0.9944925}
-  m_AnchoredPosition: {x: 0, y: 0.09500122}
-  m_SizeDelta: {x: -336.55212, y: -149.96387}
+  m_AnchorMin: {x: 0, y: 0.3354445}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.00018310547, y: 0.21230316}
+  m_SizeDelta: {x: -175.33386, y: -125.33728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2024054841251260875
 CanvasRenderer:
@@ -142,11 +142,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5045122b10b18884cb70319f9d318425, type: 3}
-    m_FontSize: 25
+    m_FontSize: 17
     m_FontStyle: 1
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 25
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 6773142334504800639}
   - component: {fileID: 6773142334504800636}
   - component: {fileID: 6773142334504800637}
-  - component: {fileID: 8180644980025014377}
+  - component: {fileID: 4854174698277777345}
   m_Layer: 5
   m_Name: Close
   m_TagString: Untagged
@@ -226,18 +226,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5045122b10b18884cb70319f9d318425, type: 3}
-    m_FontSize: 50
+    m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 80
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CLOSE
+  m_Text: Close
 --- !u!114 &6773142334504800637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8180644980025014377
+--- !u!114 &4854174698277777345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,27 +312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6773142334504800635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c84a9b856224a042a809d7e6fe60b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:1a53bf16fe04ada419e383f9e389cd95
-    m_TableEntryReference:
-      m_KeyId: 34654268608512
-      m_Key: 
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6773142334504800636}
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  multilanguageText: {fileID: 11400000, guid: 3261b5f8b152f424b9a1edf7486e6c73, type: 2}

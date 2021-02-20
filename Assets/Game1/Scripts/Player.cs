@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Class that takes care of the player's movement.
@@ -13,7 +11,7 @@ public class Player : MonoBehaviour
     float jump = 9.5f;
     bool dontMove = true;
     bool moveLeft = false;
-    
+
     [Header("Components")]
     Rigidbody2D rb;
     Animator anim;
@@ -26,7 +24,8 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.position = new Vector2(-8.76f, -5.4f);
+        transform.position = new Vector2(-6.3f, -5.4f);
+        DontAllowMovement();
     }
 
     void Start()
@@ -121,9 +120,9 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// Boolean that is positive if the player is in contact with the ground.
+    /// Boolean that is true if the player is in contact with the ground.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>True if the player is in contact with the ground, false if it isn't.</returns>
     bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, sr.bounds.extents.y + 0.01f, 0), Vector2.down, 0.1f);

@@ -89,7 +89,7 @@ public class PacmanMovement : MonoBehaviour
             bigDotSound.Play();
             GameManager4.manager4.UpdateScore(5);
             GameManager4.manager4.enemiesInScreen = 4;
-            
+
             if (EatBigDot != null)
             {
                 EatBigDot();
@@ -161,7 +161,7 @@ public class PacmanMovement : MonoBehaviour
                         selectedDirection = Vector2.down;
                     }
                 }
-                
+
                 else if (dragDistance.y > dragDistance.x)
                 {
                     if (dragDistance.y > 0.8f)

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
-/// Script to control the main functions of the game 3.
+/// Class that control the main functions of the game 3.
 /// </summary>
 public class GameManager3 : MonoBehaviour
 {
@@ -112,8 +112,6 @@ public class GameManager3 : MonoBehaviour
     public void ContinuePlaying()
     {
         playerController.enabled = true;
-        playerController.DontAllowMovement();
-        playerController.DontAllowShoot();
         
         for (int i = 0; i < enemies.Length; i++)
         {
@@ -209,21 +207,19 @@ public class GameManager3 : MonoBehaviour
     /// </summary>
     public void PauseGame()
     {
-        if (panelPause.activeSelf == false)
+        if (!panelPause.activeSelf)
         {
             panelPause.SetActive(true);
             panelControllers.SetActive(false);
-            playerController.DontAllowMovement();
-            playerController.DontAllowShoot();
-            AudioListener.volume = 0;
             Time.timeScale = 0;
+            AudioListener.volume = 0;
         }
-        else if (panelPause.activeSelf == true)
+        else if (panelPause.activeSelf)
         {
             panelPause.SetActive(false);
             panelControllers.SetActive(true);
-            AudioListener.volume = 1;
             Time.timeScale = 1;
+            AudioListener.volume = 1;
         }
     }
 
@@ -232,7 +228,7 @@ public class GameManager3 : MonoBehaviour
     /// </summary>
     public void Help()
     {
-        if (panelHelp.activeSelf == false)
+        if (!panelHelp.activeSelf)
         {
             panelHelp.SetActive(true);
         }
@@ -295,8 +291,6 @@ public class GameManager3 : MonoBehaviour
             
             panelGameOver.SetActive(true);
             panelControllers.SetActive(false);
-            playerController.DontAllowMovement();
-            playerController.DontAllowShoot();
             SaveHighScore();
             LoadHighScore();
             StopAllCoroutines();

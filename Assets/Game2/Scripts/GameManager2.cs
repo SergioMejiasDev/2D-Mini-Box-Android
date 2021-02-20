@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Script to control the main functions of the game 2.
+/// Class to control the main functions of the game 2.
 /// </summary>
 public class GameManager2 : MonoBehaviour
 {
@@ -59,6 +59,7 @@ public class GameManager2 : MonoBehaviour
     public void StartGame(int numberOfPlayers)
     {
         panelMenu.SetActive(false);
+        panelControllers.SetActive(true);
         ball.SetActive(true);
         paddle1.enabled = true;
         
@@ -77,7 +78,6 @@ public class GameManager2 : MonoBehaviour
     /// </summary>
     private void ResetPosition()
     {
-        paddle1.DontAllowMovement();
         paddle1.ResetPosition();
         if (paddle2.enabled == true)
         {
@@ -128,7 +128,7 @@ public class GameManager2 : MonoBehaviour
     /// </summary>
     public void SaveHighScore()
     {
-        if (paddleAI.enabled == true)
+        if (paddleAI.enabled)
         {
             if ((player1Score - player2Score) > (highScore1 - highScore2))
             {
@@ -144,14 +144,13 @@ public class GameManager2 : MonoBehaviour
     /// </summary>
     public void PauseGame()
     {
-        if (panelPause.activeSelf == false)
+        if (!panelPause.activeSelf)
         {
             panelPause.SetActive(true);
             panelControllers.SetActive(false);
-            paddle1.DontAllowMovement();
             Time.timeScale = 0;
         }
-        else if (panelPause.activeSelf == true)
+        else if (panelPause.activeSelf)
         {
             panelPause.SetActive(false);
             panelControllers.SetActive(true);
@@ -164,7 +163,7 @@ public class GameManager2 : MonoBehaviour
     /// </summary>
     public void Help()
     {
-        if (panelHelp.activeSelf == false)
+        if (!panelHelp.activeSelf)
         {
             panelHelp.SetActive(true);
         }

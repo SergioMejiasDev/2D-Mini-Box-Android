@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script used by the missiles generator.
+/// Class used by the missiles generator.
 /// </summary>
 public class MissileGenerator : MonoBehaviour
 {
@@ -24,28 +23,23 @@ public class MissileGenerator : MonoBehaviour
         {
             if (randonNumber == 1)
             {
-                missile.transform.position = new Vector2(13.62f, 2.23f);
-                missile.transform.rotation = Quaternion.identity;
-                missile.SetActive(true);
+                missile.transform.position = new Vector2(11f, 2.23f);
             }
             else if (randonNumber == 2)
             {
-                missile.transform.position = new Vector2(13.62f, -3.3f);
-                missile.transform.rotation = Quaternion.identity;
-                missile.SetActive(true);
+                missile.transform.position = new Vector2(11f, -3.5f);
             }
             else if (randonNumber == 3)
             {
-                missile.transform.position = new Vector2(-13.62f, 2.23f);
-                missile.transform.rotation = Quaternion.identity;
-                missile.SetActive(true);
+                missile.transform.position = new Vector2(-11f, 2.23f);
             }
             else if (randonNumber == 4)
             {
-                missile.transform.position = new Vector2(-13.62f, -3.3f);
-                missile.transform.rotation = Quaternion.identity;
-                missile.SetActive(true);
+                missile.transform.position = new Vector2(-11f, -3.5f);
             }
+
+            missile.transform.rotation = Quaternion.identity;
+            missile.SetActive(true);
         }
     }
 

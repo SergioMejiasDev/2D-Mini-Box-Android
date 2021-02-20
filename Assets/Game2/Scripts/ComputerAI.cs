@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Class that controls the enemy IA.
+/// </summary>
 public class ComputerAI : MonoBehaviour
 {
-    float speed = 5;
+    float speed = 3.5f;
     Rigidbody2D rb;
     AudioSource audioSource;
     Vector2 startPosition;

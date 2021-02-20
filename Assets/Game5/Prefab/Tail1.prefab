@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1416081751307110410}
   - component: {fileID: 2536984030258455836}
   m_Layer: 0
-  m_Name: Tail
+  m_Name: Tail1
   m_TagString: Game5/Tail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6bcc366bbf1a89b4a8f217c54c20f9b3, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.22687483, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.07058824, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

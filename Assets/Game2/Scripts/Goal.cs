@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that is responsible for updating the score when someone scores.
+/// Class that is responsible for updating the score when someone scores.
 /// </summary>
 public class Goal : MonoBehaviour
 {

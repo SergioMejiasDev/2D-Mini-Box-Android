@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Script that controls the movement of the paddles.
+/// Class that controls the movement of the paddles.
 /// </summary>
 public class Paddle : MonoBehaviour
 {
@@ -111,5 +109,6 @@ public class Paddle : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         transform.position = startPosition;
+        DontAllowMovement();
     }
 }

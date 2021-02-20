@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Script used by the coins generator.
+/// Class used by the coins generator.
 /// </summary>
 public class CoinGenerator : MonoBehaviour
 {
@@ -32,46 +31,35 @@ public class CoinGenerator : MonoBehaviour
         {
             if (randonNumber == 1)
             {
-                coin.transform.position = new Vector2(Random.Range(-10f, -4f), 4.5f);
-                coin.transform.rotation = Quaternion.identity;
-                coin.SetActive(true);
+                coin.transform.position = new Vector2(Random.Range(-7.65f, -3.13f), 4.5f);
             }
             else if (randonNumber == 2)
             {
-                coin.transform.position = new Vector2(Random.Range(4f, 10f), 4.5f);
-                coin.transform.rotation = Quaternion.identity;
-                coin.SetActive(true);
+                coin.transform.position = new Vector2(Random.Range(3.13f, 7.65f), 4.5f);
             }
             else if (randonNumber == 3)
             {
-                coin.transform.position = new Vector2(Random.Range(-2.6f, 2.6f), 2f);
-                coin.transform.rotation = Quaternion.identity;
-                coin.SetActive(true);
+                coin.transform.position = new Vector2(Random.Range(-1.75f, 1.75f), 2f);
             }
             else if (randonNumber == 4)
             {
-                coin.transform.position = new Vector2(Random.Range(-11.7f, -4.1f), 0.7f);
-                coin.transform.rotation = Quaternion.identity;
-                coin.SetActive(true);
+                coin.transform.position = new Vector2(Random.Range(-8.8f, -3f), -1f);
             }
             else if (randonNumber == 5)
             {
-                coin.transform.position = new Vector2(Random.Range(4.1f, 11.7f), 0.7f);
-                coin.transform.rotation = Quaternion.identity;
-                coin.SetActive(true);
+                coin.transform.position = new Vector2(Random.Range(3f, 8.8f), -1f);
             }
             else if (randonNumber == 6)
             {
-                coin.transform.position = new Vector2(-2.5f, -3.35f);
-                coin.transform.rotation = Quaternion.identity;
-                coin.SetActive(true);
+                coin.transform.position = new Vector2(-1.75f, -3.5f);
             }
             else if (randonNumber == 7)
             {
-                coin.transform.position = new Vector2(2.5f, -3.35f);
-                coin.transform.rotation = Quaternion.identity;
-                coin.SetActive(true);
+                coin.transform.position = new Vector2(1.75f, -3.5f);
             }
+
+            coin.transform.rotation = Quaternion.identity;
+            coin.SetActive(true);
         }
     }
 

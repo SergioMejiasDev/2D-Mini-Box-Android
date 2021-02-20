@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
-/// Class that controls the main functions of the menu.
+/// Class that manages the main menu functions.
 /// </summary>
 public class GameManagerMenu : MonoBehaviour
 {
@@ -27,6 +27,11 @@ public class GameManagerMenu : MonoBehaviour
     private void Start()
     {
         CheckVolume();
+
+        if (PlayerPrefs.GetInt("FirstTime") == 0)
+        {
+            OpenPanel(panels[5]);
+        }
     }
 
     /// <summary>
@@ -107,6 +112,18 @@ public class GameManagerMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// Close the game completely.
+    /// </summary>
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    /// <summary>
     /// Function called to check the volume at the start of the game.
     /// </summary>
     void CheckVolume()
@@ -141,7 +158,7 @@ public class GameManagerMenu : MonoBehaviour
         if (leftArrow)
         {
             volume -= 5;
-            AudioListener.volume = (volume/100f);
+            AudioListener.volume = (volume / 100f);
             volumeRightArrow.SetActive(true);
 
             if (volume > 0)
@@ -159,7 +176,7 @@ public class GameManagerMenu : MonoBehaviour
         else
         {
             volume += 5;
-            AudioListener.volume = (volume/100f);
+            AudioListener.volume = (volume / 100f);
             volumeLeftArrow.SetActive(true);
             volumeText.text = volume.ToString() + "%";
 
@@ -169,18 +186,6 @@ public class GameManagerMenu : MonoBehaviour
                 volumeRightArrow.SetActive(false);
             }
         }
-    }
-
-    /// <summary>
-    /// Close the game completely.
-    /// </summary>
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
     }
 
     /// <summary>
@@ -199,6 +204,15 @@ public class GameManagerMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("GameVolume", volume);
         PlayerPrefs.Save();
+    }
+
+    /// <summary>
+    /// Function that allows changing the language from the options menu.
+    /// </summary>
+    /// <param name="newLanguage">The code of the language that we want to activate.</param>
+    public void ChangeLanguage(string newLanguage)
+    {
+        MultilanguageManager.multilanguageManager.ChangeLanguage(newLanguage);
     }
 
     /// <summary>
