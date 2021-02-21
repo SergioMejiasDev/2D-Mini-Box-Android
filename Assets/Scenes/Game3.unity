@@ -9080,15 +9080,15 @@ RectTransform:
   m_GameObject: {fileID: 2585790706322917982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2585790706931133088}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.90054023, y: 0.048333332}
-  m_AnchorMax: {x: 0.96333337, y: 0.17666668}
-  m_AnchoredPosition: {x: -0.5, y: 0}
-  m_SizeDelta: {x: 24, y: 23}
+  m_AnchorMin: {x: 0.8914599, y: 0.028333334}
+  m_AnchorMax: {x: 0.97254026, y: 0.19500001}
+  m_AnchoredPosition: {x: -0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2585790706926048902
 MonoBehaviour:
@@ -9132,18 +9132,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2585790706926048904}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1407572399}
-        m_MethodName: PauseGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2585790706926048904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9194,6 +9183,7 @@ GameObject:
   - component: {fileID: 2585790706926048905}
   - component: {fileID: 2585790706926048904}
   - component: {fileID: 2585790706926048902}
+  - component: {fileID: 2585790706926048908}
   m_Layer: 5
   m_Name: Pause
   m_TagString: Untagged
@@ -9220,6 +9210,34 @@ RectTransform:
   m_AnchoredPosition: {x: -0.5, y: 0.5}
   m_SizeDelta: {x: 49, y: 49}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2585790706926048908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585790706926048906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1407572399}
+          m_MethodName: PauseGame
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!224 &2585790706931133088
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9451,15 +9469,15 @@ RectTransform:
   m_GameObject: {fileID: 2585790706965684950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2585790706931133088}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1587701, y: 0.048333332}
-  m_AnchorMax: {x: 0.22045983, y: 0.17666668}
-  m_AnchoredPosition: {x: -0.5, y: 0}
-  m_SizeDelta: {x: 24, y: 23}
+  m_AnchorMin: {x: 0.14954019, y: 0.028333334}
+  m_AnchorMax: {x: 0.22945982, y: 0.19500001}
+  m_AnchoredPosition: {x: -0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2585790707646509202
 CanvasRenderer:
@@ -9614,15 +9632,15 @@ RectTransform:
   m_GameObject: {fileID: 2585790707646509206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2585790706931133088}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.03877009, y: 0.048333332}
-  m_AnchorMax: {x: 0.10068974, y: 0.17666668}
-  m_AnchoredPosition: {x: -1, y: 0}
-  m_SizeDelta: {x: 25, y: 23}
+  m_AnchorMin: {x: 0.029000001, y: 0.028333334}
+  m_AnchorMax: {x: 0.11000001, y: 0.19500001}
+  m_AnchoredPosition: {x: -0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &3240918993247142929
 PrefabInstance:
@@ -9736,6 +9754,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 32841799}
     m_Modifications:
+    - target: {fileID: 2100071278243415436, guid: 6b366d1cac6655046a71374fd38f80b1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.7999878
+      objectReference: {fileID: 0}
     - target: {fileID: 4886862364449925664, guid: 6b366d1cac6655046a71374fd38f80b1,
         type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
@@ -9888,6 +9911,11 @@ PrefabInstance:
 
         Destroy
         As Many Enemies As Possible Before They Reach The Bases.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024054841251260877, guid: b813339358c89ae45bcf947969fdb5e8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 2024054841251260877, guid: b813339358c89ae45bcf947969fdb5e8,
         type: 3}
