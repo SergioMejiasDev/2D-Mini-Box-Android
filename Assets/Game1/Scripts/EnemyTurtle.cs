@@ -6,12 +6,7 @@
 public class EnemyTurtle : MonoBehaviour
 {
     int direction = 1;
-    SpriteRenderer sr;
-
-    private void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-    }
+    [SerializeField] SpriteRenderer sr;
 
     private void OnEnable()
     {

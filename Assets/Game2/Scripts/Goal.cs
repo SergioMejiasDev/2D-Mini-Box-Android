@@ -6,12 +6,7 @@
 public class Goal : MonoBehaviour
 {
     [SerializeField] bool isPlayer1Goal = false;
-    AudioSource audioSource;
-
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField] AudioSource audioSource;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

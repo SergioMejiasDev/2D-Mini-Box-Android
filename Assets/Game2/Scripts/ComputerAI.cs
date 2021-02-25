@@ -6,16 +6,14 @@
 public class ComputerAI : MonoBehaviour
 {
     float speed = 3.5f;
-    Rigidbody2D rb;
-    AudioSource audioSource;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] AudioSource audioSource;
     Vector2 startPosition;
     [SerializeField] GameObject ball = null;
     int ballPosition;
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
         startPosition = transform.position;
     }
 

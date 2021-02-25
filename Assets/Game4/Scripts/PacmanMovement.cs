@@ -19,9 +19,9 @@ public class PacmanMovement : MonoBehaviour
     bool isDie = false;
 
     [Header("Components")]
-    CircleCollider2D col;
-    Rigidbody2D rb;
-    Animator anim;
+    [SerializeField] CircleCollider2D col;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Animator anim;
 
     [Header("Sounds")]
     [SerializeField] AudioSource bigDotSound = null;
@@ -31,9 +31,6 @@ public class PacmanMovement : MonoBehaviour
     {
         destination = transform.position;
         startPosition = transform.position;
-        col = GetComponent<CircleCollider2D>();
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
     }
 
     private void Update()

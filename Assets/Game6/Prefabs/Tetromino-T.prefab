@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letter: T
-  fallingSound: {fileID: 0}
+  fallingSound: {fileID: -8309730650122930505}
 --- !u!82 &-8309730650122930505
 AudioSource:
   m_ObjectHideFlags: 0

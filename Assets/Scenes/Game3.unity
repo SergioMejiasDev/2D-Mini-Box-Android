@@ -770,6 +770,7 @@ MonoBehaviour:
   piece1: {fileID: 857556383}
   piece2: {fileID: 10612900}
   piece3: {fileID: 983383095}
+  sr: {fileID: 56463335}
 --- !u!50 &56463333
 Rigidbody2D:
   serializedVersion: 4
@@ -1375,6 +1376,7 @@ MonoBehaviour:
   piece1: {fileID: 25980794}
   piece2: {fileID: 2081114301}
   piece3: {fileID: 1269175983}
+  sr: {fileID: 165617289}
 --- !u!50 &165617287
 Rigidbody2D:
   serializedVersion: 4
@@ -1525,6 +1527,7 @@ MonoBehaviour:
   piece1: {fileID: 429917680}
   piece2: {fileID: 1170203369}
   piece3: {fileID: 772780435}
+  sr: {fileID: 167043331}
 --- !u!50 &167043329
 Rigidbody2D:
   serializedVersion: 4
@@ -2342,6 +2345,7 @@ MonoBehaviour:
   maxWait: 1
   fireRate: 0.99
   stopMoving: 0
+  audioSource: {fileID: 357244922}
 --- !u!82 &357244922
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4606,6 +4610,7 @@ MonoBehaviour:
   piece1: {fileID: 411370242}
   piece2: {fileID: 1347282176}
   piece3: {fileID: 823882697}
+  sr: {fileID: 972167059}
 --- !u!50 &972167057
 Rigidbody2D:
   serializedVersion: 4

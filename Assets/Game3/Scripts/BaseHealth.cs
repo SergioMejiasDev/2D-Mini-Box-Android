@@ -7,11 +7,10 @@ public class BaseHealth : MonoBehaviour
 {
     int health = 10;
     [SerializeField] GameObject piece1 = null, piece2 = null, piece3 = null;
-    SpriteRenderer sr;
+    [SerializeField] SpriteRenderer sr;
 
     public void Restart()
     {
-        sr = GetComponent<SpriteRenderer>();
         sr.enabled = false;
         piece1.SetActive(true);
         piece2.SetActive(false);

@@ -9,7 +9,7 @@ public class Tetromino : MonoBehaviour
     int rotationMode = 1;
     float lastFall = 0;
 
-    AudioSource fallingSound;
+    [SerializeField] AudioSource fallingSound;
 
     /// <summary>
     /// Boolean that is true if the piece is within the game grid.
@@ -51,11 +51,6 @@ public class Tetromino : MonoBehaviour
         {
             GameManager6.manager6.GameOver();
             Destroy(gameObject);
-        }
-
-        else
-        {
-            fallingSound = GetComponent<AudioSource>();
         }
     }
 

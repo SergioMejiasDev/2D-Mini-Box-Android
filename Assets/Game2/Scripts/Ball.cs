@@ -6,12 +6,11 @@
 public class Ball : MonoBehaviour
 {
     float speed = 4;
-    Rigidbody2D rb;
+    [SerializeField] Rigidbody2D rb;
     Vector3 startPosition;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         startPosition = transform.position;
         Launch();
     }

@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letter: L
-  fallingSound: {fileID: 0}
+  fallingSound: {fileID: 1576171581815649869}
 --- !u!82 &1576171581815649869
 AudioSource:
   m_ObjectHideFlags: 0

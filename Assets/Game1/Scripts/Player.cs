@@ -13,10 +13,10 @@ public class Player : MonoBehaviour
     bool moveLeft = false;
 
     [Header("Components")]
-    Rigidbody2D rb;
-    Animator anim;
-    SpriteRenderer sr;
-    AudioSource audioSource;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Animator anim;
+    [SerializeField] SpriteRenderer sr;
+    [SerializeField] AudioSource audioSource;
 
     [Header("Sounds")]
     [SerializeField] AudioSource coinSound = null;
@@ -27,14 +27,6 @@ public class Player : MonoBehaviour
     {
         transform.position = new Vector2(-6.3f, -5.4f);
         DontAllowMovement();
-    }
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()

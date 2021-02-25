@@ -3337,6 +3337,8 @@ MonoBehaviour:
   - {fileID: 935105896}
   - {fileID: 84269350}
   speed: 0.1
+  rb: {fileID: 170834113}
+  anim: {fileID: 170834118}
 --- !u!95 &170834118
 Animator:
   serializedVersion: 3
@@ -16839,6 +16841,8 @@ MonoBehaviour:
   - {fileID: 552937651}
   - {fileID: 995907811}
   speed: 0.1
+  rb: {fileID: 846878739}
+  anim: {fileID: 846878736}
 --- !u!1 &851762963
 GameObject:
   m_ObjectHideFlags: 0
@@ -18869,6 +18873,8 @@ MonoBehaviour:
   - {fileID: 356138821}
   - {fileID: 1473686689}
   speed: 0.1
+  rb: {fileID: 994313735}
+  anim: {fileID: 994313739}
 --- !u!1 &995907810
 GameObject:
   m_ObjectHideFlags: 0
@@ -22456,6 +22462,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   startPosition: {x: 0, y: 0}
+  col: {fileID: 1210408108}
+  rb: {fileID: 1210408107}
+  anim: {fileID: 1210408106}
   bigDotSound: {fileID: 858829104}
   dieSound: {fileID: 2103124505}
 --- !u!1 &1211268060
@@ -27382,6 +27391,8 @@ MonoBehaviour:
   - {fileID: 1829744423}
   - {fileID: 1781285180}
   speed: 0.1
+  rb: {fileID: 1403033334}
+  anim: {fileID: 1403033339}
 --- !u!95 &1403033339
 Animator:
   serializedVersion: 3

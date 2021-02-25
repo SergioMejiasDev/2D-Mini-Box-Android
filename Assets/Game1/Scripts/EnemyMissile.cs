@@ -6,12 +6,7 @@
 public class EnemyMissile : MonoBehaviour
 {
     int direction;
-    SpriteRenderer sr;
-
-    void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-    }
+    [SerializeField] SpriteRenderer sr;
 
     private void OnEnable()
     {

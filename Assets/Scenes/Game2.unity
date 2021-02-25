@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272b09a54e175f24e9b039a0d61584f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 53581617}
 --- !u!1 &362401251
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +403,7 @@ PrefabInstance:
     - target: {fileID: 8710847330144724969, guid: 84bdf635accccfe45a65e37995ccacd3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8710847330144724969, guid: 84bdf635accccfe45a65e37995ccacd3,
         type: 3}
@@ -714,6 +715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4b56b5c3769fd4ca3d68dd5efd4983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 489601229}
+  audioSource: {fileID: 489601234}
 --- !u!82 &489601234
 AudioSource:
   m_ObjectHideFlags: 0
@@ -823,6 +826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ca5cd72240949488a811686d9e4bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 489601229}
+  audioSource: {fileID: 489601234}
   ball: {fileID: 53581616}
 --- !u!1 &550847692
 GameObject:
@@ -1023,6 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1Goal: 1
+  audioSource: {fileID: 555526500}
 --- !u!82 &555526500
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2045,6 +2051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4b56b5c3769fd4ca3d68dd5efd4983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1469495130}
+  audioSource: {fileID: 1469495135}
 --- !u!82 &1469495135
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2542,6 +2550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1Goal: 0
+  audioSource: {fileID: 1973249839}
 --- !u!82 &1973249839
 AudioSource:
   m_ObjectHideFlags: 0

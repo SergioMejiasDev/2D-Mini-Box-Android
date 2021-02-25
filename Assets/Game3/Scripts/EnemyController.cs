@@ -12,12 +12,11 @@ public class EnemyController : MonoBehaviour
     GameObject[] enemies;
     [SerializeField] float fireRate = 0.997f;
     public bool stopMoving;
-    AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
 
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Game3/Enemy");
-        audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
