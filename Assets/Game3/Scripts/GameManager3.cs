@@ -48,6 +48,7 @@ public class GameManager3 : MonoBehaviour
     [SerializeField] GameObject panelPause = null;
     [SerializeField] GameObject panelGameOver = null;
     [SerializeField] GameObject panelControllers = null;
+    [SerializeField] GameObject panelBlack = null;
     #endregion
 
     void Awake()
@@ -305,9 +306,19 @@ public class GameManager3 : MonoBehaviour
     {
         playerController.enabled = false;
         enemyController.stopMoving = true;
+
         SaveHighScore();
         LoadHighScore();
-        yield return new WaitForSeconds(2);
+
+        yield return new WaitForSeconds(1.5f);
+
+        panelBlack.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        panelBlack.SetActive(false);
+        player.transform.position = new Vector2(0, -4);
+
         ContinuePlaying();
     }
 

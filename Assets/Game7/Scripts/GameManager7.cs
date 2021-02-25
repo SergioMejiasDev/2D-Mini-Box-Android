@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager7 : MonoBehaviour
 {
+    #region Variables
     public static GameManager7 manager7;
 
     public delegate void Manager7Delegate();
@@ -54,6 +55,7 @@ public class GameManager7 : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] AudioSource scoreSound = null;
     [SerializeField] AudioSource winSound = null;
+    #endregion
 
     private void Awake()
     {
