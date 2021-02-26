@@ -11,6 +11,7 @@ public class MarioMovement : MonoBehaviour
     float jump = 4.0f;
     [SerializeField] LayerMask groundMask = 0;
     bool isDead = false;
+    bool isWinning = false;
 
     [Header("Ladders")]
     float climbSpeed = 2.0f;
@@ -219,7 +220,7 @@ public class MarioMovement : MonoBehaviour
     /// </summary>
     public void Jump()
     {
-        if (!climbingLadders && IsGrounded() && (!inLadders || malletMode))
+        if (!isWinning && !climbingLadders && IsGrounded() && (!inLadders || malletMode))
         {
             jumpSound.Play();
 
@@ -296,6 +297,7 @@ public class MarioMovement : MonoBehaviour
         transform.localScale = new Vector2(1f, 1f);
 
         isDead = false;
+        isWinning = false;
     }
 
     /// <summary>
@@ -360,6 +362,8 @@ public class MarioMovement : MonoBehaviour
         {
             if (!climbingLadders)
             {
+                isWinning = true;
+
                 GameManager7.manager7.WinGame();
             }
         }
