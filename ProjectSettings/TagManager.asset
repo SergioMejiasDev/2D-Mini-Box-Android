@@ -19,7 +19,6 @@ TagManager:
   - Game1/Enemy
   - Game1/Coin
   - Game1/Walls
-  - Game1/Ground
   - Game1/Pipe
   - Game1/Missile
   - Menu/LanguageManager
@@ -30,6 +29,26 @@ TagManager:
   - Game7/Ladders
   - Game7/MalletHit
   - Game7/Walls
+  - Game5/Border
+  - Game8/Destructor
+  - Game8/Water
+  - Game8/DeathZone
+  - Game8/Car1
+  - Game8/Car2
+  - Game8/Car3
+  - Game8/Car4
+  - Game8/Car5
+  - Game8/Crocodile
+  - Game8/Trunk1
+  - Game8/Trunk2
+  - Game8/Trunk3
+  - Game8/Turtle1
+  - Game8/Turtle2
+  - Game8/Turtle3
+  - Game8/Turtle4
+  - Game5/Food
+  - Game5/RedFood
+  - Game5/Tail
   layers:
   - Default
   - TransparentFX

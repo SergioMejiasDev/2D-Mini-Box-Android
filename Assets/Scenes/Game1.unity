@@ -132,9 +132,9 @@ GameObject:
   - component: {fileID: 1724257}
   - component: {fileID: 1724258}
   - component: {fileID: 1724259}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Block (1)
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,9 +241,9 @@ GameObject:
   - component: {fileID: 35037032}
   - component: {fileID: 35037033}
   - component: {fileID: 35037034}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Block
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,9 +350,9 @@ GameObject:
   - component: {fileID: 51867274}
   - component: {fileID: 51867275}
   - component: {fileID: 51867276}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Block (5)
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 183331622}
   m_Layer: 0
   m_Name: MissileEnd
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -841,9 +841,9 @@ GameObject:
   - component: {fileID: 330892147}
   - component: {fileID: 330892146}
   - component: {fileID: 330892148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2729,7 +2729,7 @@ GameObject:
   - component: {fileID: 1150427407}
   - component: {fileID: 1150427409}
   - component: {fileID: 1150427410}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pipe3
   m_TagString: Game1/Pipe
   m_Icon: {fileID: 0}
@@ -3044,7 +3044,7 @@ GameObject:
   - component: {fileID: 1237156116}
   - component: {fileID: 1237156118}
   - component: {fileID: 1237156119}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pipe1
   m_TagString: Game1/Pipe
   m_Icon: {fileID: 0}
@@ -3269,9 +3269,9 @@ GameObject:
   - component: {fileID: 1502617202}
   - component: {fileID: 1502617203}
   - component: {fileID: 1502617204}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Block (6)
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3384,9 +3384,9 @@ GameObject:
   - component: {fileID: 1658515474}
   - component: {fileID: 1658515475}
   - component: {fileID: 1658515476}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Block (2)
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3686,6 +3686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631ce9fb0ba8054e829f31fdb436c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1024
   rb: {fileID: 1718098348}
   anim: {fileID: 1718098347}
   sr: {fileID: 1718098350}
@@ -3770,7 +3773,7 @@ GameObject:
   - component: {fileID: 1760235330}
   m_Layer: 0
   m_Name: Ground (1)
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3963,9 +3966,9 @@ GameObject:
   - component: {fileID: 1826852001}
   - component: {fileID: 1826852002}
   - component: {fileID: 1826852003}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Block (3)
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4232,9 +4235,9 @@ GameObject:
   - component: {fileID: 2067033326}
   - component: {fileID: 2067033327}
   - component: {fileID: 2067033328}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Block (4)
-  m_TagString: Game1/Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4442,6 +4445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7631ce9fb0ba8054e829f31fdb436c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1024
   rb: {fileID: 2120173762}
   anim: {fileID: 2120173764}
   sr: {fileID: 2120173759}

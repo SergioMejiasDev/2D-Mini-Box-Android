@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 550731527}
   - component: {fileID: 550731526}
   - component: {fileID: 550731525}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2108,10 +2108,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplayer: 0
   head: {fileID: 4403297732464395667}
+  snakeMovement: {fileID: 4403297732464395668}
   head2: {fileID: 550731524}
+  snake2Movement: {fileID: 550731525}
   food: {fileID: 2107290415285664801, guid: f9072e1dafdb2b842b4573db405f925c, type: 3}
   redFood: {fileID: 2132809063684413453, guid: b411439e94b966d439187542352f1374, type: 3}
   newRedFoodSound: {fileID: 905903605}
+  snakeMask:
+    serializedVersion: 2
+    m_Bits: 0
   scoreText: {fileID: 1999761846}
   score2Text: {fileID: 78596880}
   highScoreText: {fileID: 301744700}
@@ -2986,7 +2991,7 @@ GameObject:
   - component: {fileID: 9043066407505346830}
   - component: {fileID: 5615055994740141080}
   - component: {fileID: 4403297732464395668}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}

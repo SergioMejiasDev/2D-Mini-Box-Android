@@ -245,11 +245,11 @@ public class GameManager8 : MonoBehaviour
     IEnumerator WinGame()
     {
         player.SetActive(false);
-        UpdateScore(100);
 
         yield return new WaitForSeconds(2);
 
         panelBlack.SetActive(true);
+        UpdateScore(100);
 
         yield return new WaitForSeconds(0.5f);
 

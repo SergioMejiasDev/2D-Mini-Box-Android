@@ -14,14 +14,16 @@ public class GameManager5 : MonoBehaviour
     [Header("Players")]
     public bool multiplayer = false;
     [SerializeField] GameObject head = null;
-    SnakeMovement snakeMovement;
+    [SerializeField] SnakeMovement snakeMovement;
     [SerializeField] GameObject head2 = null;
-    SnakeMovement snake2Movement;
+    [SerializeField] SnakeMovement snake2Movement;
 
     [Header("Food")]
     [SerializeField] GameObject food = null;
     [SerializeField] GameObject redFood = null;
     [SerializeField] AudioSource newRedFoodSound = null;
+    [SerializeField] LayerMask snakeMask = 0;
+    int spawnAttemps = 0;
 
     [Header("Score")]
     int score = 0;
@@ -48,6 +50,38 @@ public class GameManager5 : MonoBehaviour
     [SerializeField] Text victoryText2 = null;
     #endregion
 
+    /// <summary>
+    /// Function that searches for a random position on the plane and checks if it is available.
+    /// </summary>
+    /// <returns>The vector where the objects will be instantiated.</returns>
+    Vector2 SpawnVector()
+    {
+        int x = (int)Random.Range(borderLeft.position.x + 1, borderRight.position.x - 1);
+
+        int y = (int)Random.Range(borderBottom.position.y + 1, borderTop.position.y - 1);
+
+        if (Physics2D.OverlapCircle(new Vector2(x, y), 0.5f, snakeMask))
+        {
+            spawnAttemps += 1;
+
+            if (spawnAttemps > 20)
+            {
+                spawnAttemps = 0;
+
+                return new Vector2(x, y);
+            }
+
+            return SpawnVector();
+        }
+
+        else
+        {
+            spawnAttemps = 0;
+
+            return new Vector2(x, y);
+        }
+    }
+
     private void Awake()
     {
         manager5 = this;
@@ -57,8 +91,6 @@ public class GameManager5 : MonoBehaviour
     {
         Time.timeScale = 1;
         LoadHighScore();
-        snakeMovement = head.GetComponent<SnakeMovement>();
-        snake2Movement = head2.GetComponent<SnakeMovement>();
     }
 
     /// <summary>
@@ -124,11 +156,7 @@ public class GameManager5 : MonoBehaviour
     /// </summary>
     public void Spawn()
     {
-        int x = (int)Random.Range(borderLeft.position.x + 1, borderRight.position.x - 1);
-
-        int y = (int)Random.Range(borderBottom.position.y + 1, borderTop.position.y - 1);
-
-        Instantiate(food, new Vector2(x, y), Quaternion.identity);
+        Instantiate(food, SpawnVector(), Quaternion.identity);
     }
 
     /// <summary>
@@ -273,11 +301,7 @@ public class GameManager5 : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(20, 40));
 
-        int x = (int)Random.Range(borderLeft.position.x + 1, borderRight.position.x - 1);
-
-        int y = (int)Random.Range(borderBottom.position.y + 1, borderTop.position.y - 1);
-
-        GameObject activeRedFood = Instantiate(redFood, new Vector2(x, y), Quaternion.identity);
+        GameObject activeRedFood = Instantiate(redFood, SpawnVector(), Quaternion.identity);
 
         newRedFoodSound.Play();
         

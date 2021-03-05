@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     float jump = 9.5f;
     bool dontMove = true;
     bool moveLeft = false;
+    [SerializeField] LayerMask groundMask = 0;
 
     [Header("Components")]
     [SerializeField] Rigidbody2D rb;
@@ -22,6 +23,17 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource coinSound = null;
     [SerializeField] AudioSource hurtSound = null;
     #endregion
+
+    /// <summary>
+    /// Boolean that is true if the player is in contact with the ground.
+    /// </summary>
+    /// <returns>True if the player is in contact with the ground, false if it isn't.</returns>
+    bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, sr.bounds.extents.y + 0.01f, 0), Vector2.down, 0.1f, groundMask);
+        
+        return hit;
+    }
 
     private void OnEnable()
     {
@@ -110,16 +122,6 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("IsWalking", (!dontMove && IsGrounded()));
         anim.SetBool("IsJumping", !IsGrounded());
-    }
-
-    /// <summary>
-    /// Boolean that is true if the player is in contact with the ground.
-    /// </summary>
-    /// <returns>True if the player is in contact with the ground, false if it isn't.</returns>
-    bool IsGrounded()
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, sr.bounds.extents.y + 0.01f, 0), Vector2.down, 0.1f);
-        return hit.collider != null;
     }
 
     /// <summary>
