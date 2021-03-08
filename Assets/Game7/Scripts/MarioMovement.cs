@@ -47,7 +47,6 @@ public class MarioMovement : MonoBehaviour
     bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, boxCollider.bounds.extents.y + 0.2f, 0), Vector2.down, 0.1f, groundMask);
-        Debug.DrawRay(transform.position - new Vector3(0, boxCollider.bounds.extents.y + 0.2f, 0), Vector2.down * 0.1f, Color.red);
 
         return hit;
     }
@@ -59,7 +58,6 @@ public class MarioMovement : MonoBehaviour
     bool InBorderOfLadders()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, boxCollider.bounds.extents.y + 0.2f, 0), Vector2.down, 0.1f, ladderMask);
-        Debug.DrawRay(transform.position - new Vector3(0, boxCollider.bounds.extents.y + 0.2f, 0), Vector2.down * 0.01f, Color.blue);
 
         return hit;
     }

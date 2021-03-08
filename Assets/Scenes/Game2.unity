@@ -295,8 +295,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 53581616}
+  ballScript: {fileID: 53581621}
   player1Paddle: {fileID: 1469495129}
+  paddle1: {fileID: 1469495134}
   player2Paddle: {fileID: 489601228}
+  paddle2: {fileID: 489601233}
+  paddleAI: {fileID: 489601235}
   player1Text: {fileID: 1728481789}
   player2Text: {fileID: 1774197573}
   highScoreText: {fileID: 896670511}

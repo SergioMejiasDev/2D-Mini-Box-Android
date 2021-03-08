@@ -6111,6 +6111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391002318abf30f4bb758d8c372a7cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 177788793}
   player: {fileID: 177788788}
   lifes:
   - {fileID: 558574254}
@@ -6124,6 +6125,7 @@ MonoBehaviour:
   playerExplosion: {fileID: 1312701762507441013, guid: 95b67433e0a20dc4a80c16ee48a5dc86,
     type: 3}
   playerExplosionAudio: {fileID: 1407913977}
+  enemyController: {fileID: 357244921}
   enemyHolder: {fileID: 357244918}
   enemies:
   - {fileID: 2042695065}

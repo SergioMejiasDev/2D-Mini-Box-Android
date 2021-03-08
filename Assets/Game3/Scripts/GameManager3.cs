@@ -12,7 +12,7 @@ public class GameManager3 : MonoBehaviour
     public static GameManager3 manager3;
 
     [Header("Player")]
-    PlayerController playerController;
+    [SerializeField] PlayerController playerController = null;
     [SerializeField] GameObject player = null;
     [SerializeField] GameObject[] lifes = null;
     [SerializeField] GameObject[] bases = null;
@@ -21,7 +21,7 @@ public class GameManager3 : MonoBehaviour
     [SerializeField] AudioSource playerExplosionAudio = null;
     
     [Header("Enemies")]
-    EnemyController enemyController;
+    [SerializeField] EnemyController enemyController = null;
     [SerializeField] GameObject enemyHolder = null;
     [SerializeField] GameObject[] enemies = null;
     int enemiesInScreen;
@@ -59,10 +59,6 @@ public class GameManager3 : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        AudioListener.volume = 1;
-        enemyController = enemyHolder.GetComponent<EnemyController>();
-        playerController = player.GetComponent<PlayerController>();
-        score = 0;
         LoadHighScore();
         highScoreMenu.text = "HIGH SCORE: " + highScore.ToString();
     }

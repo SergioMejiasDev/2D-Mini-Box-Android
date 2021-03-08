@@ -11,16 +11,14 @@ public class GameManager2 : MonoBehaviour
 
     [Header("Ball")]
     [SerializeField] GameObject ball = null;
-    Ball ballScript;
+    [SerializeField] Ball ballScript = null;
 
     [Header("Player 1")]
-    [SerializeField] GameObject player1Paddle = null;
-    Paddle paddle1;
+    [SerializeField] Paddle paddle1 = null;
 
     [Header("Player 2")]
-    [SerializeField] GameObject player2Paddle = null;
-    Paddle paddle2;
-    ComputerAI paddleAI;
+    [SerializeField] Paddle paddle2 = null;
+    [SerializeField] ComputerAI paddleAI = null;
 
     [Header("Score")]
     [SerializeField] Text player1Text = null;
@@ -45,10 +43,6 @@ public class GameManager2 : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-        ballScript = ball.GetComponent<Ball>();
-        paddle1 = player1Paddle.GetComponent<Paddle>();
-        paddle2 = player2Paddle.GetComponent<Paddle>();
-        paddleAI = player2Paddle.GetComponent<ComputerAI>();
         LoadHighScore();
     }
 

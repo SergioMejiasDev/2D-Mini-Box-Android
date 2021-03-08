@@ -5124,6 +5124,7 @@ MonoBehaviour:
   - {fileID: 332130926}
   - {fileID: 1655745306}
   - {fileID: 670289756}
+  pacmanMovement: {fileID: 1210408109}
   enemies:
   - {fileID: 846878735}
   - {fileID: 1403033333}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2132809063684413455}
   - component: {fileID: 2132809063684413452}
   - component: {fileID: 228267517171593811}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedFood
   m_TagString: Game5/RedFood
   m_Icon: {fileID: 0}

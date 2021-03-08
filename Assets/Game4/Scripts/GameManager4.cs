@@ -18,7 +18,7 @@ public class GameManager4 : MonoBehaviour
     [SerializeField] GameObject player = null;
     [SerializeField] GameObject[] lifes = null;
     int remainingLifes = 4;
-    PacmanMovement pacmanMovement;
+    [SerializeField] PacmanMovement pacmanMovement = null;
 
     [Header("Enemies")]
     [SerializeField] GameObject[] enemies = null;
@@ -61,7 +61,6 @@ public class GameManager4 : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-        pacmanMovement = player.GetComponent<PacmanMovement>();
         dots = GameObject.FindGameObjectsWithTag("Game4/Dot");
         LoadHighScore();
         highScoreText.text = "HIGH SCORE: " + highScore.ToString();
