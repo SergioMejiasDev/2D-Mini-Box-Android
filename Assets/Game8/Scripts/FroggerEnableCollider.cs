@@ -21,7 +21,6 @@ public class FroggerEnableCollider : MonoBehaviour
         if (enable == 1)
         {
             boxCollider.SetActive(true);
-
         }
 
         else

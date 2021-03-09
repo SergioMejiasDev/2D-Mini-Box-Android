@@ -13,6 +13,7 @@ public class ObjectPooler : MonoBehaviour
         public GameObject objectToPool;
         public bool shouldExpand;
     }
+
     public static ObjectPooler SharedInstance;
     public List<GameObject> pooledObjects;
     public List<ObjectPoolItem> itemsToPool;
@@ -21,24 +22,27 @@ public class ObjectPooler : MonoBehaviour
     {
         for (int i = 0; i < pooledObjects.Count; i++)
         {
-            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
+            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].CompareTag(tag))
             {
                 return pooledObjects[i];
             }
         }
+
         foreach (ObjectPoolItem item in itemsToPool)
         {
-            if (item.objectToPool.tag == tag)
+            if (item.objectToPool.CompareTag(tag))
             {
                 if (item.shouldExpand)
                 {
-                    GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                    GameObject obj = Instantiate(item.objectToPool);
                     obj.SetActive(false);
                     pooledObjects.Add(obj);
+                    
                     return obj;
                 }
             }
         }
+
         return null;
     }
 
@@ -54,7 +58,7 @@ public class ObjectPooler : MonoBehaviour
         {
             for (int i = 0; i < item.amountToPool; i++)
             {
-                GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                GameObject obj = Instantiate(item.objectToPool);
                 obj.SetActive(false);
                 pooledObjects.Add(obj);
             }

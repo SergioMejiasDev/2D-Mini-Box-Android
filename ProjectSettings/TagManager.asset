@@ -49,6 +49,7 @@ TagManager:
   - Game5/Food
   - Game5/RedFood
   - Game5/Tail
+  - Game1/Ground
   layers:
   - Default
   - TransparentFX
