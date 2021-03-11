@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 /// <summary>
 /// Class that controls the enemy movement.
@@ -6,7 +7,10 @@
 public class EnemyTurtle : MonoBehaviour
 {
     int direction = 1;
-    [SerializeField] SpriteRenderer sr;
+
+    [SerializeField] bool canDestruct = false;
+
+    [SerializeField] PhotonView pv = null;
 
     private void OnEnable()
     {
@@ -24,6 +28,11 @@ public class EnemyTurtle : MonoBehaviour
 
     private void Update()
     {
+        if (pv != null && !pv.IsMine)
+        {
+            return;
+        }
+
         transform.Translate(Vector2.right * 3 * direction * Time.deltaTime);
     }
 
@@ -34,11 +43,11 @@ public class EnemyTurtle : MonoBehaviour
     {
         if (direction == 1)
         {
-            sr.flipX = true;
+            transform.localScale = new Vector2(-0.85f, 0.85f);
         }
         else
         {
-            sr.flipX = false;
+            transform.localScale = new Vector2(0.85f, 0.85f);
         }
     }
 
@@ -47,11 +56,24 @@ public class EnemyTurtle : MonoBehaviour
         if ((other.gameObject.CompareTag("Game1/Walls")))
         {
             direction *= -1;
+
             FlipEnemy();
         }
-        if (other.gameObject.CompareTag("Game1/Pipe"))
+
+        else if (other.gameObject.CompareTag("Game1/Pipe"))
         {
+            if (canDestruct)
+            {
+                if (pv.IsMine)
+                {
+                    PhotonNetwork.Destroy(gameObject);
+                }
+
+                return;
+            }
+
             gameObject.SetActive(false);
         }
     }
 }
+

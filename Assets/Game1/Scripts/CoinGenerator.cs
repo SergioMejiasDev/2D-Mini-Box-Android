@@ -1,22 +1,38 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Photon.Pun;
 
 /// <summary>
 /// Class used by the coins generator.
 /// </summary>
 public class CoinGenerator : MonoBehaviour
 {
-    void OnEnable()
+    Vector2 SpawnPosition()
     {
-        StartCoroutine(SpawnCoins(GameManager1.manager.isMultiplayer));
+        int randonNumber = Random.Range(1, 7);
+
+        switch (randonNumber)
+        {
+            case 1:
+                return new Vector2(Random.Range(-7.65f, -3.13f), 4.5f);
+            case 2:
+                return new Vector2(Random.Range(3.13f, 7.65f), 4.5f);
+            case 3:
+                return new Vector2(Random.Range(-1.75f, 1.75f), 2f);
+            case 4:
+                return new Vector2(Random.Range(-8.8f, -3f), -1f);
+            case 5:
+                return new Vector2(Random.Range(3f, 8.8f), -1f);
+            case 6:
+                return new Vector2(-1.75f, -3.5f);
+            default:
+                return new Vector2(1.75f, -3.5f);
+        }
     }
 
-    private void Update()
+    void OnEnable()
     {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            GameManager1.manager.PauseGame();
-        }
+        StartCoroutine(SpawnCoins(NetworkManager.networkManager.isConnected));
     }
 
     /// <summary>
@@ -24,43 +40,22 @@ public class CoinGenerator : MonoBehaviour
     /// </summary>
     public void GenerateCoin()
     {
-        int randonNumber = Random.Range(1, 7);
-
         GameObject coin = ObjectPooler.SharedInstance.GetPooledObject("Game1/Coin");
+
         if (coin != null)
         {
-            if (randonNumber == 1)
-            {
-                coin.transform.position = new Vector2(Random.Range(-7.65f, -3.13f), 4.5f);
-            }
-            else if (randonNumber == 2)
-            {
-                coin.transform.position = new Vector2(Random.Range(3.13f, 7.65f), 4.5f);
-            }
-            else if (randonNumber == 3)
-            {
-                coin.transform.position = new Vector2(Random.Range(-1.75f, 1.75f), 2f);
-            }
-            else if (randonNumber == 4)
-            {
-                coin.transform.position = new Vector2(Random.Range(-8.8f, -3f), -1f);
-            }
-            else if (randonNumber == 5)
-            {
-                coin.transform.position = new Vector2(Random.Range(3f, 8.8f), -1f);
-            }
-            else if (randonNumber == 6)
-            {
-                coin.transform.position = new Vector2(-1.75f, -3.5f);
-            }
-            else if (randonNumber == 7)
-            {
-                coin.transform.position = new Vector2(1.75f, -3.5f);
-            }
-
+            coin.transform.position = SpawnPosition();
             coin.transform.rotation = Quaternion.identity;
             coin.SetActive(true);
         }
+    }
+
+    /// <summary>
+    /// Function that is responsible for instantiate coins on the server.
+    /// </summary>
+    void InstantiateCoin()
+    {
+        PhotonNetwork.InstantiateRoomObject("1Coin", SpawnPosition(), Quaternion.identity);
     }
 
     /// <summary>
@@ -72,14 +67,16 @@ public class CoinGenerator : MonoBehaviour
     {
         while (true)
         {
-            GenerateCoin();
-
-            if (multiplayer == true)
+            if (multiplayer)
             {
+                InstantiateCoin();
+
                 yield return new WaitForSeconds(Random.Range(3, 6));
             }
             else
             {
+                GenerateCoin();
+
                 yield return new WaitForSeconds(Random.Range(5, 10));
             }
         }

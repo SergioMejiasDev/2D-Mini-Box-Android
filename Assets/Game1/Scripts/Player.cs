@@ -6,6 +6,7 @@
 public class Player : MonoBehaviour
 {
     #region Variables
+
     [Header("Movement")]
     float speed = 4;
     float jump = 9.5f;
@@ -20,8 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioSource audioSource;
 
     [Header("Sounds")]
-    [SerializeField] AudioSource coinSound = null;
     [SerializeField] AudioSource hurtSound = null;
+
     #endregion
 
     /// <summary>
@@ -140,16 +141,8 @@ public class Player : MonoBehaviour
     {
         if ((other.gameObject.CompareTag("Game1/Enemy")) || (other.gameObject.CompareTag("Game1/Missile")))
         {
-            if (GameManager1.manager.isMultiplayer)
-            {
-                GameManager1.manager.Respawn(true);
-            }
-
-            else
-            {
-                gameObject.SetActive(false);
-                GameManager1.manager.GameOver();
-            }
+            gameObject.SetActive(false);
+            GameManager1.manager.GameOver();
 
             hurtSound.Play();
         }
@@ -159,9 +152,8 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Game1/Coin"))
         {
-            coinSound.Play();
             other.gameObject.SetActive(false);
-            GameManager1.manager.UpdateScore(true);
+            GameManager1.manager.UpdateScore();
         }
     }
 }

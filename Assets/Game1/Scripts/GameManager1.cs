@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,7 +13,6 @@ public class GameManager1 : MonoBehaviour
     [Header("Score")]
     int score;
     [SerializeField] Text scoreText = null;
-    int score2;
     [SerializeField] Text score2Text = null;
     int highScore = 0;
     [SerializeField] Text highScoreText = null;
@@ -28,11 +26,12 @@ public class GameManager1 : MonoBehaviour
 
     [Header("Players")]
     [SerializeField] GameObject player1 = null;
-    [SerializeField] GameObject player2 = null;
-    public bool isMultiplayer;
 
     [Header("Spawns")]
     [SerializeField] GameObject[] generators = null;
+
+    [Header("Sounds")]
+    [SerializeField] AudioSource coindSound = null;
     #endregion
 
     void Awake()
@@ -49,9 +48,10 @@ public class GameManager1 : MonoBehaviour
     /// <summary>
     /// Function that starts a new game.
     /// </summary>
-    /// <param name="multiplayer">True if is a multiplayer game.</param>
-    public void StartGame(bool multiplayer)
+    public void StartGame()
     {
+        score2Text.enabled = false;
+
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Game1/Enemy");
         if (enemies != null)
         {
@@ -86,19 +86,6 @@ public class GameManager1 : MonoBehaviour
 
         player1.SetActive(true);
 
-        if (multiplayer)
-        {
-            player2.SetActive(true);
-            score2Text.enabled = true;
-            isMultiplayer = true;
-            score2 = 0;
-            score2Text.text = "SCORE: 0";
-        }
-        else
-        {
-            isMultiplayer = false;
-        }
-
         for (int i = 0; i < generators.Length; i++)
         {
             generators[i].SetActive(true);
@@ -109,46 +96,18 @@ public class GameManager1 : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that starts a new game after Game Over.
-    /// </summary>
-    public void Restart()
-    {
-        StartGame(isMultiplayer);
-    }
-
-    /// <summary>
-    /// Function that returns the player to the original position after dying.
-    /// </summary>
-    /// <param name="isPlayer1">True if the dead player is player 1.</param>
-    public void Respawn(bool isPlayer1)
-    {
-        if (isPlayer1)
-        {
-            player1.SetActive(false);
-            score = 0;
-            scoreText.text = "SCORE: 0";
-        }
-        else
-        {
-            player2.SetActive(false);
-            score2 = 0;
-            score2Text.text = "SCORE: 0";
-        }
-        
-        StartCoroutine(WaitForRespawn(isPlayer1));
-    }
-
-    /// <summary>
     /// Function that activates the Game Over.
     /// </summary>
     public void GameOver()
     {
         panelControllers.SetActive(false);
         panelGameOver.SetActive(true);
+
         for (int i = 0; i < generators.Length; i++)
         {
             generators[i].SetActive(false);
         }
+        
         SaveHighScore();
     }
 
@@ -174,19 +133,12 @@ public class GameManager1 : MonoBehaviour
     /// <summary>
     /// Function that updates the score.
     /// </summary>
-    /// <param name="isPlayer1">True if the scored player is player 1.</param>
-    public void UpdateScore(bool isPlayer1)
+    public void UpdateScore()
     {
-        if (isPlayer1)
-        {
-            score += 1;
-            scoreText.text = "SCORE: " + score.ToString();
-        }
-        else
-        {
-            score2 += 1;
-            score2Text.text = "SCORE: " + score2.ToString();
-        }
+        score += 1;
+        scoreText.text = "SCORE: " + score.ToString();
+
+        coindSound.Play();
     }
 
     /// <summary>
@@ -204,13 +156,10 @@ public class GameManager1 : MonoBehaviour
     /// </summary>
     public void SaveHighScore()
     {
-        if (!isMultiplayer)
+        if ((score) > (highScore))
         {
-            if ((score) > (highScore))
-            {
-                PlayerPrefs.SetInt("HighScore1", score);
-                PlayerPrefs.Save();
-            }
+            PlayerPrefs.SetInt("HighScore1", score);
+            PlayerPrefs.Save();
         }
     }
 
@@ -236,27 +185,5 @@ public class GameManager1 : MonoBehaviour
     public void LoadGame(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex);
-    }
-
-    /// <summary>
-    /// Coroutine that takes care of the player's respawn after dying.
-    /// </summary>
-    /// <param name="isPlayer1">True if the dead player is player 1.</param>
-    /// <returns></returns>
-    IEnumerator WaitForRespawn(bool isPlayer1)
-    {
-        yield return new WaitForSeconds(2);
-        {
-            if (isPlayer1)
-            {
-                player1.transform.position = new Vector2(-6.3f, -5.4f);
-                player1.SetActive(true);
-            }
-            else
-            {
-                player2.transform.position = new Vector2(6.3f, -5.4f);
-                player2.SetActive(true);
-            }
-        }
     }
 }
