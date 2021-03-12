@@ -14,19 +14,24 @@ public class GameManagerMenu : MonoBehaviour
     [Header("Games")]
     [SerializeField] GameObject[] games = null;
     int activeGame = 0;
-    [SerializeField] GameObject arrowLeft = null;
-    [SerializeField] GameObject arrowRight = null;
 
     [Header("Volume")]
     int volume;
     [SerializeField] Text volumeText = null;
     [SerializeField] GameObject volumeLeftArrow = null;
     [SerializeField] GameObject volumeRightArrow = null;
+    
+    [Header("Region")]
+    [SerializeField] Text regionText = null;
+    [SerializeField] GameObject[] regions = null;
+    int activeRegionButton = 0;
     #endregion
 
     private void Start()
     {
         CheckVolume();
+
+        UpdateRegionButton();
 
         if (PlayerPrefs.GetInt("FirstTime") == 0)
         {
@@ -68,47 +73,35 @@ public class GameManagerMenu : MonoBehaviour
     /// <summary>
     /// Function that changes the active game.
     /// </summary>
+    /// <param name="leftArrow">True if we press the left arrow button, false if we press the right.</param>
     public void ArrowGames(bool leftArrow)
     {
         if (leftArrow)
         {
             activeGame -= 1;
 
-            arrowRight.SetActive(true);
-
-            if (activeGame <= 0)
+            if (activeGame < 0)
             {
-                activeGame = 0;
-                arrowLeft.SetActive(false);
+                activeGame = games.Length - 1;
             }
-
-            for (int i = 0; i < games.Length; i++)
-            {
-                games[i].SetActive(false);
-            }
-
-            games[activeGame].SetActive(true);
         }
 
         else
         {
             activeGame += 1;
 
-            arrowLeft.SetActive(true);
-
-            if (activeGame >= (games.Length - 1))
+            if (activeGame >= games.Length)
             {
-                activeGame = games.Length - 1;
-                arrowRight.SetActive(false);
+                activeGame = 0;
             }
-
-            for (int i = 0; i < games.Length; i++)
-            {
-                games[i].SetActive(false);
-            }
-
-            games[activeGame].SetActive(true);
         }
+
+        for (int i = 0; i < games.Length; i++)
+        {
+            games[i].SetActive(false);
+        }
+
+        games[activeGame].SetActive(true);
     }
 
     /// <summary>
@@ -230,5 +223,102 @@ public class GameManagerMenu : MonoBehaviour
         PlayerPrefs.SetInt("HighScore7", 0);
         PlayerPrefs.SetInt("HighScore8", 0);
         PlayerPrefs.Save();
+    }
+
+    /// <summary>
+    /// Function called to update the server region in the PlayerPrefs.
+    /// </summary>
+    /// <param name="token">The region code.</param>
+    public void UpdateRegion(string token)
+    {
+        PlayerPrefs.SetString("ActiveRegion", token);
+        PlayerPrefs.Save();
+
+        UpdateRegionButton();
+    }
+
+    /// <summary>
+    /// Function that updates the text of the active region accordingly.
+    /// </summary>
+    void UpdateRegionButton()
+    {
+        string activeRegion = PlayerPrefs.GetString("ActiveRegion", "eu");
+
+        switch (activeRegion)
+        {
+            case "asia":
+                regionText.text = "Asia";
+                break;
+            case "au":
+                regionText.text = "Australia";
+                break;
+            case "cae":
+                regionText.text = "Canada East";
+                break;
+            case "eu":
+                regionText.text = "Europe";
+                break;
+            case "in":
+                regionText.text = "India";
+                break;
+            case "jp":
+                regionText.text = "Japan";
+                break;
+            case "rue":
+                regionText.text = "Russia East";
+                break;
+            case "ru":
+                regionText.text = "Russia West";
+                break;
+            case "za":
+                regionText.text = "South Africa";
+                break;
+            case "sa":
+                regionText.text = "South America";
+                break;
+            case "kr":
+                regionText.text = "South Korea";
+                break;
+            case "us":
+                regionText.text = "USA East";
+                break;
+            case "usw":
+                regionText.text = "USA West";
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Function to scroll through the menu of available regions.
+    /// </summary>
+    /// <param name="leftArrow">True if we press the left arrow button, false if we press the right.</param>
+    public void ArrowRegions(bool leftArrow)
+    {
+        if (leftArrow)
+        {
+            activeRegionButton -= 1;
+
+            if (activeRegionButton < 0)
+            {
+                activeRegionButton = regions.Length - 1;
+            }
+        }
+
+        else
+        {
+            activeRegionButton += 1;
+
+            if (activeRegionButton >= regions.Length)
+            {
+                activeRegionButton = 0;
+            }
+        }
+
+        for (int i = 0; i < regions.Length; i++)
+        {
+            regions[i].SetActive(false);
+        }
+
+        regions[activeRegionButton].SetActive(true);
     }
 }

@@ -27,7 +27,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// </summary>
     public void ConnectToServer()
     {
-        PhotonNetwork.GameVersion = "2021.0311";
+        PhotonNetwork.GameVersion = "2021.0312";
+        PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = PlayerPrefs.GetString("ActiveRegion", "eu");
         PhotonNetwork.ConnectUsingSettings();
         
         panelConnecting.SetActive(true);
