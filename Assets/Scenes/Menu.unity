@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 156659178}
   - component: {fileID: 156659177}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -664,7 +664,7 @@ RectTransform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 995038678}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08177009, y: 0.02889353}
   m_AnchorMax: {x: 0.101770096, y: 0.07300001}
@@ -920,7 +920,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 995038678}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6775, y: 0.025560187}
   m_AnchorMax: {x: 0.9825001, y: 0.0808968}
@@ -959,7 +959,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UPDATE 2021.0312
+  m_Text: UPDATE 2021.0313
 --- !u!222 &255895770
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2725,9 +2725,9 @@ RectTransform:
   - {fileID: 1057069919}
   - {fileID: 695185134}
   - {fileID: 424813387}
+  - {fileID: 156659176}
   - {fileID: 2073044258}
   - {fileID: 255895768}
-  - {fileID: 156659176}
   m_Father: {fileID: 227548342}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4556,7 +4556,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 995038678}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.113310285, y: 0.025560187}
   m_AnchorMax: {x: 0.29700002, y: 0.0808968}

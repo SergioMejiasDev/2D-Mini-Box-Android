@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 3171715375867521288}
   - component: {fileID: 5231459418383180057}
   m_Layer: 0
-  m_Name: 1Player1Server
+  m_Name: 1Player1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,4 +362,3 @@ MonoBehaviour:
   sr: {fileID: 395555023339103330}
   jumpSound: {fileID: 395555023339103259}
   pv: {fileID: 6514472321832449266}
-  col: {fileID: 395555023339103256}

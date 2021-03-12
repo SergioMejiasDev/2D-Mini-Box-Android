@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Photon.Pun;
 
 /// <summary>
 /// Class that controls the missile movement.
@@ -7,9 +6,6 @@ using Photon.Pun;
 public class EnemyMissile : MonoBehaviour
 {
     int direction;
-    [SerializeField] PhotonView pv = null;
-
-    [SerializeField] bool canDestruct = false;
 
     private void OnEnable()
     {
@@ -27,11 +23,6 @@ public class EnemyMissile : MonoBehaviour
 
     void Update()
     {
-        if (pv != null && !pv.IsMine)
-        {
-            return;
-        }
-
         transform.Translate(Vector2.right * 4 * direction * Time.deltaTime);
     }
 
@@ -39,16 +30,6 @@ public class EnemyMissile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Game1/Ground"))
         {
-            if (canDestruct)
-            {
-                if (pv.IsMine)
-                {
-                    PhotonNetwork.Destroy(gameObject);
-                }
-
-                return;
-            }
-
             gameObject.SetActive(false);
         }
     }

@@ -19,11 +19,10 @@ public class Player1Server : MonoBehaviour
     [SerializeField] SpriteRenderer sr = null;
     [SerializeField] AudioSource jumpSound = null;
     [SerializeField] PhotonView pv = null;
-    [SerializeField] CircleCollider2D col = null;
 
     #endregion
 
-        /// <summary>
+    /// <summary>
     /// Boolean that indicates through a Raycast if the player is touching the ground.
     /// </summary>
     /// <returns>True if the player is on the ground, false if not.</returns>
@@ -135,8 +134,6 @@ public class Player1Server : MonoBehaviour
         {
             if (pv.IsMine)
             {
-                col.enabled = false;
-
                 OnlineManager1.onlineManager.Respawn();
                 
                 if (PhotonView.Find(pv.ViewID))
@@ -153,17 +150,7 @@ public class Player1Server : MonoBehaviour
         {
             if (pv.IsMine)
             {
-                if (playerNumber == 1)
-                {
-                    OnlineManager1.onlineManager.Scored(true);
-                }
-
-                else if (playerNumber == 2)
-                {
-                    OnlineManager1.onlineManager.Scored(false);
-                }
-
-                OnlineManager1.onlineManager.DestroyCoin(collision.gameObject.GetComponent<PhotonView>().ViewID);
+                OnlineManager1.onlineManager.DestroyCoin(collision.gameObject.GetComponent<PhotonView>().ViewID, playerNumber);
             }
         }
     }

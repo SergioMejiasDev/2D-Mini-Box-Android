@@ -5,7 +5,7 @@ using Photon.Pun;
 /// <summary>
 /// Class used by the missiles generator.
 /// </summary>
-public class MissileGenerator : MonoBehaviour
+public class MissileGenerator : MonoBehaviourPun
 {
     /// <summary>
     /// Function that generates a random position for the missiles.
@@ -26,13 +26,14 @@ public class MissileGenerator : MonoBehaviour
             default:
                 return new Vector2(-11f, -3.5f);
         }
-
     }
-
 
     void OnEnable()
     {
-        StartCoroutine(SpawnMissiles(NetworkManager.networkManager.isConnected));
+        if (NetworkManager.networkManager.playerNumber != 2)
+        {
+            StartCoroutine(SpawnMissiles(NetworkManager.networkManager.isConnected));
+        }
     }
 
     /// <summary>
@@ -53,9 +54,17 @@ public class MissileGenerator : MonoBehaviour
     /// <summary>
     /// Function that is responsible for instantiating missiles on the server.
     /// </summary>
-    void InstantiateMissiles()
+    [PunRPC]
+    void InstantiateMissiles(Vector2 spawnPosition)
     {
-        PhotonNetwork.InstantiateRoomObject("1Missile", SpawnPosition(), Quaternion.identity);
+        GameObject missile = ObjectPooler.SharedInstance.GetPooledObject("Game1/Missile");
+
+        if (missile != null)
+        {
+            missile.transform.position = spawnPosition;
+            missile.transform.rotation = Quaternion.identity;
+            missile.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -71,7 +80,7 @@ public class MissileGenerator : MonoBehaviour
         {
             if (multiplayer)
             {
-                InstantiateMissiles();
+                photonView.RPC("InstantiateMissiles", RpcTarget.All, SpawnPosition());
             }
 
             else

@@ -7,11 +7,14 @@ using Photon.Realtime;
 /// </summary>
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    public static NetworkManager networkManager;
+
     [SerializeField] GameObject panelConnecting = null;
     [SerializeField] GameObject panelRooms = null;
     [SerializeField] GameObject panelErrorRoom = null;
 
-    public static NetworkManager networkManager;
+    public Photon.Realtime.Player[] players;
+    public int playerNumber = 0;
 
     public bool isConnected = false;
 
@@ -23,14 +26,31 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     }
 
     /// <summary>
+    /// Function that resets the player's data on the server.
+    /// </summary>
+    public void SetValues()
+    {
+        players = PhotonNetwork.PlayerList;
+
+        if (playerNumber == 1)
+        {
+            return;
+        }
+
+        playerNumber = players.Length;
+
+        PhotonNetwork.NickName = playerNumber.ToString();
+    }
+
+    /// <summary>
     /// Function we call to connect to the server.
     /// </summary>
     public void ConnectToServer()
     {
-        PhotonNetwork.GameVersion = "2021.0312";
+        PhotonNetwork.GameVersion = "2021.0313";
         PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = PlayerPrefs.GetString("ActiveRegion", "eu");
         PhotonNetwork.ConnectUsingSettings();
-        
+
         panelConnecting.SetActive(true);
     }
 
@@ -70,7 +90,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void JoinRoom(int roomNumber)
     {
         activeRoom = roomNumber;
-        PhotonNetwork.JoinOrCreateRoom(roomNumber.ToString(), new RoomOptions {MaxPlayers = 2}, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(roomNumber.ToString(), new RoomOptions { MaxPlayers = 2 }, TypedLobby.Default);
     }
 
     /// <summary>

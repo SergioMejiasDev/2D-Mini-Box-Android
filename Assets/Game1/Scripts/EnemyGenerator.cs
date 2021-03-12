@@ -5,19 +5,23 @@ using Photon.Pun;
 /// <summary>
 /// Class used by the enemies generator.
 /// </summary>
-public class EnemyGenerator : MonoBehaviour
+public class EnemyGenerator : MonoBehaviourPun
 {
     void OnEnable()
     {
-        StartCoroutine(Spawner(NetworkManager.networkManager.isConnected));
+        if (NetworkManager.networkManager.playerNumber != 2)
+        {
+            StartCoroutine(Spawner(NetworkManager.networkManager.isConnected));
+        }
     }
 
     /// <summary>
     /// Function that is responsible for generating enemies.
     /// </summary>
-    public void GenerateEnemy()
+    void GenerateEnemy()
     {
         GameObject goomba = ObjectPooler.SharedInstance.GetPooledObject("Game1/Enemy");
+
         if (goomba != null)
         {
             goomba.transform.position = transform.position;
@@ -29,9 +33,17 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary>
     /// Function that is responsible for instantiating enemies on the server.
     /// </summary>
-    void InstantiateEnemy()
+    [PunRPC]
+    void InstantiateEnemy(Vector3 spawnPosition)
     {
-        PhotonNetwork.InstantiateRoomObject("1Turtle", transform.position, Quaternion.identity);
+        GameObject goomba = ObjectPooler.SharedInstance.GetPooledObject("Game1/Enemy");
+
+        if (goomba != null)
+        {
+            goomba.transform.position = spawnPosition;
+            goomba.transform.rotation = Quaternion.identity;
+            goomba.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -45,7 +57,7 @@ public class EnemyGenerator : MonoBehaviour
         {
             if (multiplayer)
             {
-                InstantiateEnemy();
+                photonView.RPC("InstantiateEnemy", RpcTarget.All, transform.position);
             }
 
             else
