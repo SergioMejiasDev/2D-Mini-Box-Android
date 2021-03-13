@@ -65,6 +65,8 @@ public class CoinGenerator : MonoBehaviour
     /// <returns></returns>
     IEnumerator SpawnCoins(bool multiplayer)
     {
+        yield return new WaitForSeconds(1);
+
         while (true)
         {
             if (multiplayer)

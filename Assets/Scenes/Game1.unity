@@ -2816,6 +2816,7 @@ MonoBehaviour:
   panelPause: {fileID: 1283299657}
   panelHelp: {fileID: 2092647675}
   panelControllers: {fileID: 632132781}
+  waitingText: {fileID: 5016983307775691419}
   player1: {fileID: 2120173758}
   generators:
   - {fileID: 1013754780}

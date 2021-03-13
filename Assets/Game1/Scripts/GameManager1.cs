@@ -23,6 +23,7 @@ public class GameManager1 : MonoBehaviour
     [SerializeField] GameObject panelPause = null;
     [SerializeField] GameObject panelHelp = null;
     [SerializeField] GameObject panelControllers = null;
+    [SerializeField] GameObject waitingText = null;
 
     [Header("Players")]
     [SerializeField] GameObject player1 = null;
@@ -51,6 +52,7 @@ public class GameManager1 : MonoBehaviour
     public void StartGame()
     {
         score2Text.enabled = false;
+        waitingText.SetActive(false);
 
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Game1/Enemy");
         if (enemies != null)
