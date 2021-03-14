@@ -5,18 +5,14 @@
 /// </summary>
 public class ComputerAI : MonoBehaviour
 {
+    [Header("Movement")]
     float speed = 3.5f;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] AudioSource audioSource;
-    Vector2 startPosition;
-    [SerializeField] GameObject ball = null;
     int ballPosition;
 
-    void Awake()
-    {
-        startPosition = transform.position;
-    }
-
+    [Header("Components")]
+    [SerializeField] Rigidbody2D rb = null;
+    [SerializeField] AudioSource audioSource = null;
+    [SerializeField] GameObject ball = null;
 
     void Update()
     {
@@ -28,7 +24,7 @@ public class ComputerAI : MonoBehaviour
         {
             ballPosition = -1;
         }
-        
+
         Move();
     }
 
@@ -46,7 +42,7 @@ public class ComputerAI : MonoBehaviour
     public void ResetPosition()
     {
         rb.velocity = Vector2.zero;
-        transform.position = startPosition;
+        transform.position = new Vector2(5.75f, 0);
     }
 
     /// <summary>

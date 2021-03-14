@@ -6,12 +6,10 @@
 public class Ball : MonoBehaviour
 {
     float speed = 4;
-    [SerializeField] Rigidbody2D rb;
-    Vector3 startPosition;
+    [SerializeField] Rigidbody2D rb = null;
 
     void Start()
     {
-        startPosition = transform.position;
         Launch();
     }
 
@@ -21,7 +19,8 @@ public class Ball : MonoBehaviour
     public void ResetPosition()
     {
         rb.velocity = Vector2.zero;
-        transform.position = startPosition;
+        transform.position = Vector2.zero;
+
         Launch();
     }
 

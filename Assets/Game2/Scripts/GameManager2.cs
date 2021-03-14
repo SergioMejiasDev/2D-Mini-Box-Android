@@ -14,10 +14,11 @@ public class GameManager2 : MonoBehaviour
     [SerializeField] Ball ballScript = null;
 
     [Header("Player 1")]
+    [SerializeField] GameObject player1 = null;
     [SerializeField] Paddle paddle1 = null;
 
     [Header("Player 2")]
-    [SerializeField] Paddle paddle2 = null;
+    [SerializeField] GameObject playerAI = null;
     [SerializeField] ComputerAI paddleAI = null;
 
     [Header("Score")]
@@ -34,6 +35,7 @@ public class GameManager2 : MonoBehaviour
     [SerializeField] GameObject panelPause = null;
     [SerializeField] GameObject panelHelp = null;
     [SerializeField] GameObject panelControllers = null;
+    [SerializeField] GameObject waitingMessage = null;
 
     private void Awake()
     {
@@ -49,22 +51,15 @@ public class GameManager2 : MonoBehaviour
     /// <summary>
     /// Function called to start the game.
     /// </summary>
-    /// <param name="numberOfPlayers">Number of players who will play.</param>
-    public void StartGame(int numberOfPlayers)
+    public void StartGame()
     {
         panelMenu.SetActive(false);
-        panelControllers.SetActive(true);
+        panelControllers.SetActive(false);
+        waitingMessage.SetActive(false);
+
         ball.SetActive(true);
-        paddle1.enabled = true;
-        
-        if (numberOfPlayers == 1)
-        {
-            paddleAI.enabled = true;
-        }
-        else if (numberOfPlayers == 2)
-        {
-            paddle2.enabled = true;
-        }
+        player1.SetActive(true);
+        playerAI.SetActive(true);
     }
 
     /// <summary>
@@ -73,14 +68,8 @@ public class GameManager2 : MonoBehaviour
     private void ResetPosition()
     {
         paddle1.ResetPosition();
-        if (paddle2.enabled == true)
-        {
-            paddle2.ResetPosition();
-        }
-        else if (paddleAI.enabled == true)
-        {
-            paddleAI.ResetPosition();
-        }
+
+        paddleAI.ResetPosition();
 
         ballScript.ResetPosition();
     }
@@ -91,18 +80,18 @@ public class GameManager2 : MonoBehaviour
     /// <param name="playerNumber">Player who has scored.</param>
     public void UpdateScore(int playerNumber)
     {
-        if (playerNumber == 1)
+        switch (playerNumber)
         {
-            player1Score++;
-            player1Text.text = player1Score.ToString();
+            case 1:
+                player1Score += 1;
+                player1Text.text = player1Score.ToString();
+                break;
+            case 2:
+                player2Score += 1;
+                player2Text.text = player2Score.ToString();
+                break;
         }
-        
-        else if (playerNumber == 2)
-        {
-            player2Score++;
-            player2Text.text = player2Score.ToString();
-        }
-        
+
         ResetPosition();
     }
 
@@ -122,14 +111,11 @@ public class GameManager2 : MonoBehaviour
     /// </summary>
     public void SaveHighScore()
     {
-        if (paddleAI.enabled)
+        if ((player1Score - player2Score) > (highScore1 - highScore2))
         {
-            if ((player1Score - player2Score) > (highScore1 - highScore2))
-            {
-                PlayerPrefs.SetInt("HighScore2-1", player1Score);
-                PlayerPrefs.SetInt("HighScore2-2", player2Score);
-                PlayerPrefs.Save();
-            }
+            PlayerPrefs.SetInt("HighScore2-1", player1Score);
+            PlayerPrefs.SetInt("HighScore2-2", player2Score);
+            PlayerPrefs.Save();
         }
     }
 

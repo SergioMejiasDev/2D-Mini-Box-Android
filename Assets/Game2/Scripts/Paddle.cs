@@ -5,17 +5,14 @@
 /// </summary>
 public class Paddle : MonoBehaviour
 {
-    float speed = 5;
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] AudioSource audioSource;
+    [Header("Movement")]
+    float speed = 3.5f;
     bool moveUp = false;
     bool dontMove = true;
-    Vector2 startPosition;
 
-    private void Awake()
-    {
-        startPosition = transform.position;
-    }
+    [Header("Components")]
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] AudioSource audioSource;
 
     void Update()
     {
@@ -92,21 +89,21 @@ public class Paddle : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Game2/Ball"))
-        {
-            audioSource.Play();
-        }
-    }
-
     /// <summary>
     /// Function called to reset the paddle position.
     /// </summary>
     public void ResetPosition()
     {
         rb.velocity = Vector2.zero;
-        transform.position = startPosition;
+        transform.position = new Vector2(-5.75f, 0);
         DontAllowMovement();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Game2/Ball"))
+        {
+            audioSource.Play();
+        }
     }
 }
