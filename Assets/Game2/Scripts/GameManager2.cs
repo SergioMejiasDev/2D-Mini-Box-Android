@@ -54,7 +54,7 @@ public class GameManager2 : MonoBehaviour
     public void StartGame()
     {
         panelMenu.SetActive(false);
-        panelControllers.SetActive(false);
+        panelControllers.SetActive(true);
         waitingMessage.SetActive(false);
 
         ball.SetActive(true);

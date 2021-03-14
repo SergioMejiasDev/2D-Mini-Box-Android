@@ -9,9 +9,9 @@ public class BallNetwork : MonoBehaviourPun
     float speed = 3.5f;
     [SerializeField] Rigidbody2D rb;
 
-    void Start()
+    void OnEnable()
     {
-        Launch();
+        ResetPosition();
     }
 
     /// <summary>
