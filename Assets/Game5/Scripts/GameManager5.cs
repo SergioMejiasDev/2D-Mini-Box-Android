@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Class that controls the main functions of Game 5.
+/// Class that controls the main functions of Game 05.
 /// </summary>
 public class GameManager5 : MonoBehaviour
 {
@@ -12,11 +12,8 @@ public class GameManager5 : MonoBehaviour
     public static GameManager5 manager5;
 
     [Header("Players")]
-    public bool multiplayer = false;
     [SerializeField] GameObject head = null;
     [SerializeField] SnakeMovement snakeMovement;
-    [SerializeField] GameObject head2 = null;
-    [SerializeField] SnakeMovement snake2Movement;
 
     [Header("Food")]
     [SerializeField] GameObject food = null;
@@ -28,7 +25,6 @@ public class GameManager5 : MonoBehaviour
     [Header("Score")]
     int score = 0;
     [SerializeField] Text scoreText = null;
-    int score2 = 0;
     [SerializeField] Text score2Text = null;
     int highScore = 0;
     [SerializeField] Text highScoreText = null;
@@ -45,9 +41,7 @@ public class GameManager5 : MonoBehaviour
     [SerializeField] GameObject panelGameOver = null;
     [SerializeField] GameObject panelHelp = null;
     [SerializeField] GameObject panelControllers = null;
-    [SerializeField] GameObject panelVictory = null;
-    [SerializeField] Text victoryText1 = null;
-    [SerializeField] Text victoryText2 = null;
+    [SerializeField] GameObject waiting = null;
     #endregion
 
     /// <summary>
@@ -96,11 +90,9 @@ public class GameManager5 : MonoBehaviour
     /// <summary>
     /// Function called to start the game.
     /// </summary>
-    /// <param name="isMultiplayer">True if the game is multiplayer.</param>
-    public void StartGame(bool isMultiplayer)
+    public void StartGame()
     {
         score = 0;
-        score2 = 0;
 
         GameObject[] activeFood = GameObject.FindGameObjectsWithTag("Game5/Food");
 
@@ -122,30 +114,15 @@ public class GameManager5 : MonoBehaviour
             }
         }
 
-        panelMenu.SetActive(false);
         panelControllers.SetActive(true);
+        panelMenu.SetActive(false);
+        waiting.SetActive(false);
+        score2Text.enabled = false;
+        panelGameOver.SetActive(false);
 
-        if (!isMultiplayer)
-        {
-            panelGameOver.SetActive(false);
-            multiplayer = false;
-            head.transform.position = Vector2.zero;
-            head.SetActive(true);
-            snakeMovement.enabled = true;
-        }
-
-        else
-        {
-            panelVictory.SetActive(false);
-            multiplayer = true;
-            head.transform.position = new Vector2(0, 10);
-            head.SetActive(true);
-            head2.transform.position = new Vector2(0, -10);
-            head2.SetActive(true);
-            snakeMovement.enabled = true;
-            snake2Movement.enabled = true;
-            score2Text.enabled = true;
-        }
+        head.transform.position = Vector2.zero;
+        head.SetActive(true);
+        snakeMovement.enabled = true;
 
         Spawn();
         SpawnRed();
@@ -172,20 +149,10 @@ public class GameManager5 : MonoBehaviour
     /// Function called to increase the score.
     /// </summary>
     /// <param name="scoreValue">How much the score increases.</param>
-    /// <param name="player2">True if the scoring player is player 2, false if it is player 1.</param>
-    public void UpdateScore(int scoreValue, bool player2)
+    public void UpdateScore(int scoreValue)
     {
-        if (!player2)
-        {
-            score += scoreValue;
-            scoreText.text = "SCORE: " + score.ToString();
-        }
-
-        else
-        {
-            score2 += scoreValue;
-            score2Text.text = "SCORE: " + score2.ToString();
-        }
+        score += scoreValue;
+        scoreText.text = "SCORE: " + score.ToString();
     }
 
     /// <summary>
@@ -198,33 +165,6 @@ public class GameManager5 : MonoBehaviour
         panelControllers.SetActive(false);
         StopAllCoroutines();
         SaveHighScore();
-    }
-
-    /// <summary>
-    /// Function that activates the Victory screen in multiplayer mode.
-    /// </summary>
-    /// <param name="player1victory">True if the winner is player 1, false if it is player 2.</param>
-    public void Victory(bool player1victory)
-    {
-        snakeMovement.CancelInvoke();
-        snakeMovement.enabled = false;
-        snake2Movement.CancelInvoke();
-        snake2Movement.enabled = false;
-        panelVictory.SetActive(true);
-
-        if (!player1victory)
-        {
-            victoryText2.enabled = true;
-            victoryText1.enabled = false;
-        }
-
-        else
-        {
-            victoryText1.enabled = true;
-            victoryText2.enabled = false;
-        }
-
-        StopAllCoroutines();
     }
 
     /// <summary>
@@ -304,7 +244,7 @@ public class GameManager5 : MonoBehaviour
         GameObject activeRedFood = Instantiate(redFood, SpawnVector(), Quaternion.identity);
 
         newRedFoodSound.Play();
-        
+
         StartCoroutine(DestroyRedFood(activeRedFood));
     }
 

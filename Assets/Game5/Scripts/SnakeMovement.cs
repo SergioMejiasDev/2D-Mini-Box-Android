@@ -7,11 +7,9 @@ using UnityEngine;
 /// </summary>
 public class SnakeMovement : MonoBehaviour
 {
-    [SerializeField] bool isPlayer2 = false;
-
+    [Header("Movement")]
     Vector2 direction;
     List<Transform> tail = new List<Transform>();
-
     bool hasEaten = false;
     bool canMove = true;
     [SerializeField] GameObject tailPrefab = null;
@@ -25,45 +23,26 @@ public class SnakeMovement : MonoBehaviour
     {
         tail.Clear();
 
-        if (!isPlayer2)
-        {
-            GameObject[] activeTail = GameObject.FindGameObjectsWithTag("Game5/Tail");
+        GameObject[] activeTail = GameObject.FindGameObjectsWithTag("Game5/Tail");
 
-            if (activeTail != null)
+        if (activeTail != null)
+        {
+            for (int i = 0; i < activeTail.Length; i++)
             {
-                for (int i = 0; i < activeTail.Length; i++)
-                {
-                    Destroy(activeTail[i]);
-                }
+                Destroy(activeTail[i]);
             }
-
-            direction = Vector2.right;
-
-            Vector2 tailPosition = new Vector2(transform.position.x - 1, transform.position.y);
-            GameObject newTail = Instantiate(tailPrefab, tailPosition, Quaternion.identity);
-            tail.Insert(0, newTail.transform);
-
-            tailPosition = new Vector2(transform.position.x - 2, transform.position.y);
-            newTail = Instantiate(tailPrefab, tailPosition, Quaternion.identity);
-            tail.Insert(1, newTail.transform);
-
-            InvokeRepeating("Move", 0.3f, 0.15f);
         }
 
-        else
+        direction = Vector2.right;
+
+        for (int i = 0; i < 5; i++)
         {
-            direction = -Vector2.right;
-
-            Vector2 tailPosition = new Vector2(transform.position.x + 1, transform.position.y);
+            Vector2 tailPosition = new Vector2(transform.position.x - (i + 1), transform.position.y);
             GameObject newTail = Instantiate(tailPrefab, tailPosition, Quaternion.identity);
-            tail.Insert(0, newTail.transform);
-
-            tailPosition = new Vector2(transform.position.x + 2, transform.position.y);
-            newTail = Instantiate(tailPrefab, tailPosition, Quaternion.identity);
-            tail.Insert(1, newTail.transform);
-
-            InvokeRepeating("Move", 0.3f, 0.15f);
+            tail.Insert(i, newTail.transform);
         }
+
+        InvokeRepeating("Move", 0.3f, 0.15f);
     }
 
     void Update()
@@ -86,7 +65,7 @@ public class SnakeMovement : MonoBehaviour
             foodSound.Play();
             hasEaten = true;
 
-            GameManager5.manager5.UpdateScore(10, isPlayer2);
+            GameManager5.manager5.UpdateScore(10);
             GameManager5.manager5.Spawn();
 
             Destroy(collision.gameObject);
@@ -97,7 +76,7 @@ public class SnakeMovement : MonoBehaviour
             redFoodSound.Play();
             hasEaten = true;
 
-            GameManager5.manager5.UpdateScore(50, isPlayer2);
+            GameManager5.manager5.UpdateScore(50);
             GameManager5.manager5.SpawnRed();
 
             Destroy(collision.gameObject);
@@ -107,35 +86,22 @@ public class SnakeMovement : MonoBehaviour
         {
             snakeHurtSound.Play();
 
-            if (!GameManager5.manager5.multiplayer)
-            {
-                CancelInvoke();
-                GameManager5.manager5.GameOver();
-            }
-
-            else
-            {
-                GameManager5.manager5.Victory(isPlayer2);
-            }
+            CancelInvoke();
+            GameManager5.manager5.GameOver();
         }
 
         else if (collision.gameObject.CompareTag("Game5/Border"))
         {
             snakeHurtSound.Play();
 
-            if (!GameManager5.manager5.multiplayer)
-            {
-                CancelInvoke();
-                GameManager5.manager5.GameOver();
-            }
-
-            else
-            {
-                GameManager5.manager5.Victory(isPlayer2);
-            }
+            CancelInvoke();
+            GameManager5.manager5.GameOver();
         }
     }
 
+    /// <summary>
+    /// Function that allows the player to change direction by dragging their finger across the screen.
+    /// </summary>
     void ChangeDirection()
     {
         if (Input.touchCount > 0)
@@ -186,13 +152,13 @@ public class SnakeMovement : MonoBehaviour
     {
         canMove = true;
 
-        Vector2 v = transform.position;
+        Vector2 position = transform.position;
 
         transform.Translate(direction);
 
         if (hasEaten)
         {
-            GameObject newTail = Instantiate(tailPrefab, v, Quaternion.identity);
+            GameObject newTail = Instantiate(tailPrefab, position, Quaternion.identity);
 
             tail.Insert(0, newTail.transform);
 
@@ -201,7 +167,7 @@ public class SnakeMovement : MonoBehaviour
 
         else if (tail.Count > 0)
         {
-            tail.Last().position = v;
+            tail.Last().position = position;
 
             tail.Insert(0, tail.Last());
             tail.RemoveAt(tail.Count - 1);
