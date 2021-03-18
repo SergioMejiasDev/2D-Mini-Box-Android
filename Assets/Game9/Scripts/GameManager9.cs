@@ -20,6 +20,8 @@ public class GameManager9 : MonoBehaviour
 
     [Header("Movement")]
     public float speed;
+    float maxWait;
+    float minWait;
 
     [Header("Score")]
     int score = 0;
@@ -65,6 +67,9 @@ public class GameManager9 : MonoBehaviour
         player.SetActive(true);
         playerClass.ResetValues();
 
+        minWait = 1f;
+        maxWait = 1.5f;
+
         CleanScene();
 
         StartCoroutine(InstantiateCloud());
@@ -80,6 +85,9 @@ public class GameManager9 : MonoBehaviour
     /// </summary>
     void IncreaseSpeed()
     {
+        minWait -= 0.025f;
+        maxWait -= 0.025f;
+
         speed += 0.5f;
         ChangeSpeed(speed);
     }
@@ -144,6 +152,8 @@ public class GameManager9 : MonoBehaviour
         {
             PlayerPrefs.SetInt("HighScore9", score);
             PlayerPrefs.Save();
+
+            LoadHighScore();
         }
     }
 
@@ -249,7 +259,7 @@ public class GameManager9 : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(1f, 1.5f));
+            yield return new WaitForSeconds(Random.Range(minWait, maxWait));
 
             if (Random.value > 0.1f)
             {
