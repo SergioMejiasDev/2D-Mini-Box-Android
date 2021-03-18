@@ -47,7 +47,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// </summary>
     public void ConnectToServer()
     {
-        PhotonNetwork.GameVersion = "0.28";
+        PhotonNetwork.GameVersion = "0.30";
         PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = PlayerPrefs.GetString("ActiveRegion", "eu");
         PhotonNetwork.SendRate = 60;
         PhotonNetwork.SerializationRate = 60;

@@ -151,6 +151,7 @@ public class FrogMovement : MonoBehaviour
     public void ResetPosition()
     {
         isDie = false;
+        inWaterArea = false;
         circleCollider.enabled = true;
 
         ResetValues();

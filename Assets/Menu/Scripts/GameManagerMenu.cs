@@ -222,6 +222,7 @@ public class GameManagerMenu : MonoBehaviour
         PlayerPrefs.SetInt("HighScore6", 0);
         PlayerPrefs.SetInt("HighScore7", 0);
         PlayerPrefs.SetInt("HighScore8", 0);
+        PlayerPrefs.SetInt("HighScore9", 0);
         PlayerPrefs.Save();
     }
 
