@@ -138,6 +138,7 @@ public class FrogMovement : MonoBehaviour
     /// </summary>
     void ResetValues()
     {
+        inputsEnabled = false;
         moving = false;
         parent = null;
         transform.SetParent(null);
