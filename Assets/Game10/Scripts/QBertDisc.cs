@@ -51,15 +51,11 @@ public class QBertDisc : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.transform.position = new Vector2(transform.position.x, -0.80f);
+            collision.transform.position = new Vector2(transform.position.x, -1.10f);
 
             player = collision.gameObject.GetComponent<Rigidbody2D>();
 
             borderCollider.SetActive(true);
-
-            isActive = true;
-
-            sound.Play();
 
             StartCoroutine(EnableDisc(collision.gameObject));
         }
@@ -72,6 +68,12 @@ public class QBertDisc : MonoBehaviour
     /// <returns></returns>
     IEnumerator EnableDisc(GameObject playerObject)
     {
+        yield return new WaitForSeconds(1);
+
+        isActive = true;
+
+        sound.Play();
+
         yield return new WaitForSeconds(3);
 
         playerObject.GetComponent<QBertMovement>().ResetPosition();
