@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using Photon.Pun;
 
-public class Player1Server : MonoBehaviour
+/// <summary>
+/// Class that controls the network functions of the player.
+/// </summary>
+public class Player1Server : MonoBehaviourPun, IPunObservable
 {
     #region Variables
 
@@ -152,6 +155,25 @@ public class Player1Server : MonoBehaviour
             {
                 OnlineManager1.onlineManager.DestroyCoin(collision.gameObject.GetComponent<PhotonView>().ViewID, playerNumber);
             }
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext((Vector2)transform.position);
+            stream.SendNext(transform.localScale.x);
+            stream.SendNext(rb.position);
+            stream.SendNext(rb.rotation);
+        }
+
+        else
+        {
+            transform.position = (Vector2)stream.ReceiveNext();
+            transform.localScale = new Vector3((float)stream.ReceiveNext(), 0.85f, 1);
+            rb.position = (Vector2)stream.ReceiveNext();
+            rb.rotation = (float)stream.ReceiveNext();
         }
     }
 }

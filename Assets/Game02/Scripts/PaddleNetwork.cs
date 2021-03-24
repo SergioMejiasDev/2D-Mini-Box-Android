@@ -82,11 +82,13 @@ public class PaddleNetwork : MonoBehaviourPun, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(transform.position.y);
+            stream.SendNext(rb.position);
         }
 
         else
         {
             transform.position = new Vector2(startPosition, (float)stream.ReceiveNext());
+            rb.position = (Vector2)stream.ReceiveNext();
         }
     }
 }
