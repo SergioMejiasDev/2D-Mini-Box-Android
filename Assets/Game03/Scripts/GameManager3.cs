@@ -126,7 +126,7 @@ public class GameManager3 : MonoBehaviour
     /// </summary>
     void LoadHighScore()
     {
-        highScore = PlayerPrefs.GetInt("HighScore3", 0);
+        highScore = SaveManager.saveManager.score3;
     }
 
     /// <summary>
@@ -136,9 +136,11 @@ public class GameManager3 : MonoBehaviour
     {
         if (score > highScore)
         {
-            PlayerPrefs.SetInt("HighScore3", score);
-            PlayerPrefs.Save();
+            SaveManager.saveManager.score3 = score;
+            SaveManager.saveManager.SaveScores();
         }
+
+        LoadHighScore();
     }
 
     /// <summary>

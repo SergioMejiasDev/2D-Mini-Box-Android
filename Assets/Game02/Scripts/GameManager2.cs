@@ -100,8 +100,8 @@ public class GameManager2 : MonoBehaviour
     /// </summary>
     public void LoadHighScore()
     {
-        highScore1 = PlayerPrefs.GetInt("HighScore2-1", 0);
-        highScore2 = PlayerPrefs.GetInt("HighScore2-2", 0);
+        highScore1 = SaveManager.saveManager.score2[0];
+        highScore2 = SaveManager.saveManager.score2[1];
 
         highScoreText.text = "HIGH SCORE: " + highScore1.ToString() + " - " + highScore2.ToString();
     }
@@ -113,9 +113,8 @@ public class GameManager2 : MonoBehaviour
     {
         if ((player1Score - player2Score) > (highScore1 - highScore2))
         {
-            PlayerPrefs.SetInt("HighScore2-1", player1Score);
-            PlayerPrefs.SetInt("HighScore2-2", player2Score);
-            PlayerPrefs.Save();
+            SaveManager.saveManager.score2 = new int[] { player1Score, player2Score };
+            SaveManager.saveManager.SaveScores();
         }
     }
 

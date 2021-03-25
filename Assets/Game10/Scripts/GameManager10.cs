@@ -357,7 +357,7 @@ public class GameManager10 : MonoBehaviour
     /// </summary>
     void LoadHighScore()
     {
-        highScore = PlayerPrefs.GetInt("HighScore10", 0);
+        highScore = SaveManager.saveManager.score10;
         highScoreText.text = "HIGH SCORE: " + highScore.ToString();
     }
 
@@ -368,8 +368,8 @@ public class GameManager10 : MonoBehaviour
     {
         if (score > highScore)
         {
-            PlayerPrefs.SetInt("HighScore10", score);
-            PlayerPrefs.Save();
+            SaveManager.saveManager.score10 = score;
+            SaveManager.saveManager.SaveScores();
         }
     }
 

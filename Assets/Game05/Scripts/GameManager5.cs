@@ -172,7 +172,7 @@ public class GameManager5 : MonoBehaviour
     /// </summary>
     void LoadHighScore()
     {
-        highScore = PlayerPrefs.GetInt("HighScore5", 0);
+        highScore = SaveManager.saveManager.score5;
         highScoreText.text = "HIGH SCORE: " + highScore.ToString();
     }
 
@@ -183,8 +183,8 @@ public class GameManager5 : MonoBehaviour
     {
         if (score > highScore)
         {
-            PlayerPrefs.SetInt("HighScore5", score);
-            PlayerPrefs.Save();
+            SaveManager.saveManager.score5 = score;
+            SaveManager.saveManager.SaveScores();
         }
     }
 

@@ -217,18 +217,7 @@ public class GameManagerMenu : MonoBehaviour
     /// </summary>
     public void ClearHighScores()
     {
-        PlayerPrefs.SetInt("HighScore1", 0);
-        PlayerPrefs.SetInt("HighScore2-1", 0);
-        PlayerPrefs.SetInt("HighScore2-2", 0);
-        PlayerPrefs.SetInt("HighScore3", 0);
-        PlayerPrefs.SetInt("HighScore4", 0);
-        PlayerPrefs.SetInt("HighScore5", 0);
-        PlayerPrefs.SetInt("HighScore6", 0);
-        PlayerPrefs.SetInt("HighScore7", 0);
-        PlayerPrefs.SetInt("HighScore8", 0);
-        PlayerPrefs.SetInt("HighScore9", 0);
-        PlayerPrefs.SetInt("HighScore10", 0);
-        PlayerPrefs.Save();
+        SaveManager.saveManager.DeleteScores();
     }
 
     /// <summary>

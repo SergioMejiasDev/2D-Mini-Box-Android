@@ -240,7 +240,7 @@ public class GameManager4 : MonoBehaviour
     /// </summary>
     void LoadHighScore()
     {
-        highScore = PlayerPrefs.GetInt("HighScore4", 0);
+        highScore = SaveManager.saveManager.score4;
     }
 
     /// <summary>
@@ -250,8 +250,8 @@ public class GameManager4 : MonoBehaviour
     {
         if (score > highScore)
         {
-            PlayerPrefs.SetInt("HighScore4", score);
-            PlayerPrefs.Save();
+            SaveManager.saveManager.score4 = score;
+            SaveManager.saveManager.SaveScores();
         }
     }
 

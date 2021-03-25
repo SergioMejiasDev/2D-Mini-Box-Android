@@ -50,6 +50,7 @@ TagManager:
   - Game5/RedFood
   - Game5/Tail
   - Game1/Ground
+  - Menu/SaveManager
   layers:
   - Default
   - TransparentFX
