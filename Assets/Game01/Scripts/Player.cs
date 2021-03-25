@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
     void MoveLeft()
     {
         transform.Translate(Vector2.right * -speed * Time.deltaTime);
-        sr.flipX = true;
+        transform.localScale = new Vector2(-0.85f, 0.85f);
     }
 
     /// <summary>
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
     void MoveRight()
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
-        sr.flipX = false;
+        transform.localScale = new Vector2(0.85f, 0.85f);
     }
 
     /// <summary>

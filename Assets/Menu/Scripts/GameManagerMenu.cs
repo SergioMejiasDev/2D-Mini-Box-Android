@@ -20,7 +20,11 @@ public class GameManagerMenu : MonoBehaviour
     [SerializeField] Text volumeText = null;
     [SerializeField] GameObject volumeLeftArrow = null;
     [SerializeField] GameObject volumeRightArrow = null;
-    
+
+    [Header("Credits")]
+    [SerializeField] GameObject[] creditsPanels = null;
+    int activeCredits = 0;
+
     [Header("Region")]
     [SerializeField] Text regionText = null;
     [SerializeField] GameObject[] regions = null;
@@ -322,5 +326,46 @@ public class GameManagerMenu : MonoBehaviour
         }
 
         regions[activeRegionButton].SetActive(true);
+    }
+
+    /// <summary>
+    /// Function to scroll through the menu of credits.
+    /// </summary>
+    public void ArrowCredits()
+    {
+        activeCredits += 1;
+
+        for (int i = 0; i < creditsPanels.Length; i++)
+        {
+            creditsPanels[i].SetActive(false);
+        }
+
+        if (activeCredits == 3)
+        {
+            activeCredits = 0;
+            OpenPanel(panels[0]);
+        }
+
+        creditsPanels[activeCredits].SetActive(true);
+    }
+
+    /// <summary>
+    /// Function called to open an external link.
+    /// </summary>
+    /// <param name="link">Link that we want to open according to those referenced below.</param>
+    public void OpenURL(string link)
+    {
+        switch (link)
+        {
+            case "GooglePlay":
+                Application.OpenURL("https://play.google.com/store/apps/details?id=com.SergioMejias.MiniBox2D");
+                break;
+            case "ItchIo":
+                Application.OpenURL("https://sergiomejias.itch.io/2d-mini-box");
+                break;
+            case "GitHub":
+                Application.OpenURL("https://github.com/SergioMejiasDev/2D-Mini-Box-Android");
+                break;
+        }
     }
 }
