@@ -40,7 +40,7 @@ public class MultilanguageManager : MonoBehaviour
         activeLanguage = newLanguage;
 
         SaveManager.saveManager.activeLanguage = newLanguage;
-        SaveManager.saveManager.firsTimeLanguage = true;
+        SaveManager.saveManager.firstTimeLanguage = true;
         SaveManager.saveManager.SaveOptions();
     }
 }

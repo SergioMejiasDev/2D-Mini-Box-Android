@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeLanguage: EN
   activeRegion: eu
-  firsTimeLanguage: 0
+  firstTimeLanguage: 0
   gameVolume: 100
   score1: 0
   score2: 0000000000000000
@@ -1150,7 +1150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UPDATE 0.37
+  m_Text: UPDATE 0.39
 --- !u!222 &255895770
 CanvasRenderer:
   m_ObjectHideFlags: 0

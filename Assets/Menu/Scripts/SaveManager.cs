@@ -2,34 +2,6 @@
 using UnityEngine;
 
 /// <summary>
-/// Class with the possible options variables that can be saved.
-/// </summary>
-public class OptionsData
-{
-    public string activeLanguage;
-    public string activeRegion;
-    public bool firsTimeLanguage;
-    public int gameVolume;
-}
-
-/// <summary>
-/// Class with the possible score variables that can be saved.
-/// </summary>
-public class ScoreData
-{
-    public int score1;
-    public int[] score2 = new int[2];
-    public int score3;
-    public int score4;
-    public int score5;
-    public int score6;
-    public int score7;
-    public int score8;
-    public int score9;
-    public int score10;
-}
-
-/// <summary>
 /// Class that manages saving and loading of scores in a JSON file.
 /// </summary>
 public class SaveManager : MonoBehaviour
@@ -39,7 +11,7 @@ public class SaveManager : MonoBehaviour
     [Header("Options")]
     public string activeLanguage = "EN";
     public string activeRegion = "eu";
-    public bool firsTimeLanguage = false;
+    public bool firstTimeLanguage = false;
     public int gameVolume = 100;
 
     [Header("Scores")]
@@ -83,7 +55,7 @@ public class SaveManager : MonoBehaviour
 
         string json;
 
-        string path = Application.persistentDataPath + "/Saves/Options.json";
+        string path = Application.persistentDataPath + "/Options.json";
 
         if (File.Exists(path))
         {
@@ -96,7 +68,7 @@ public class SaveManager : MonoBehaviour
 
             activeLanguage = data.activeLanguage;
             activeRegion = data.activeRegion;
-            firsTimeLanguage = data.firsTimeLanguage;
+            firstTimeLanguage = data.firstTimeLanguage;
             gameVolume = data.gameVolume;
         }
     }
@@ -110,13 +82,13 @@ public class SaveManager : MonoBehaviour
         {
             activeLanguage = activeLanguage,
             activeRegion = activeRegion,
-            firsTimeLanguage = firsTimeLanguage,
+            firstTimeLanguage = firstTimeLanguage,
             gameVolume = gameVolume,
         };
 
         string json = JsonUtility.ToJson(data);
 
-        string path = Application.persistentDataPath + "/Saves/Options.json";
+        string path = Application.persistentDataPath + "/Options.json";
 
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
@@ -135,7 +107,7 @@ public class SaveManager : MonoBehaviour
         
         string json;
 
-        string path = Application.persistentDataPath + "/Saves/Scores.json";
+        string path = Application.persistentDataPath + "/Scores.json";
 
         if (File.Exists(path))
         {
@@ -180,7 +152,7 @@ public class SaveManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(data);
 
-        string path = Application.persistentDataPath + "/Saves/Scores.json";
+        string path = Application.persistentDataPath + "/Scores.json";
 
         FileStream fileStream = new FileStream(path, FileMode.Create);
 

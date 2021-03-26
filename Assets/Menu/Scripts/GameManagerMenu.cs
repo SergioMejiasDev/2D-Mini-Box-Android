@@ -37,7 +37,7 @@ public class GameManagerMenu : MonoBehaviour
 
         UpdateRegionButton();
 
-        if (!SaveManager.saveManager.firsTimeLanguage)
+        if (!SaveManager.saveManager.firstTimeLanguage)
         {
             SaveManager.saveManager.RescuePlayerPrefs();
             OpenPanel(panels[5]);
