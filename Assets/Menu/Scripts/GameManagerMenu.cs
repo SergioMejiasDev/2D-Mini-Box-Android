@@ -37,8 +37,9 @@ public class GameManagerMenu : MonoBehaviour
 
         UpdateRegionButton();
 
-        if (PlayerPrefs.GetInt("FirstTime") == 0)
+        if (!SaveManager.saveManager.firsTimeLanguage)
         {
+            SaveManager.saveManager.RescuePlayerPrefs();
             OpenPanel(panels[5]);
         }
     }
@@ -186,21 +187,20 @@ public class GameManagerMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that loads the options from the PlayerPrefs.
+    /// Function that loads the audio options.
     /// </summary>
     void LoadOptions()
     {
-        int soundVolumeLoaded = PlayerPrefs.GetInt("GameVolume", 100);
-        volume = soundVolumeLoaded;
+        volume = SaveManager.saveManager.gameVolume;
     }
 
     /// <summary>
-    /// Function that saves the options in the PlayerPrefs.
+    /// Function that saves the audio options.
     /// </summary>
     public void SaveOptions()
     {
-        PlayerPrefs.SetInt("GameVolume", volume);
-        PlayerPrefs.Save();
+        SaveManager.saveManager.gameVolume = volume;
+        SaveManager.saveManager.SaveOptions();
     }
 
     /// <summary>
@@ -221,13 +221,13 @@ public class GameManagerMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Function called to update the server region in the PlayerPrefs.
+    /// Function called to update the server region.
     /// </summary>
     /// <param name="token">The region code.</param>
     public void UpdateRegion(string token)
     {
-        PlayerPrefs.SetString("ActiveRegion", token);
-        PlayerPrefs.Save();
+        SaveManager.saveManager.activeRegion = token;
+        SaveManager.saveManager.SaveOptions();
 
         UpdateRegionButton();
     }
@@ -237,7 +237,7 @@ public class GameManagerMenu : MonoBehaviour
     /// </summary>
     void UpdateRegionButton()
     {
-        string activeRegion = PlayerPrefs.GetString("ActiveRegion", "eu");
+        string activeRegion = SaveManager.saveManager.activeRegion;
 
         switch (activeRegion)
         {

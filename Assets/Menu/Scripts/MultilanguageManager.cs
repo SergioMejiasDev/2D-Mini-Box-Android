@@ -28,7 +28,7 @@ public class MultilanguageManager : MonoBehaviour
 
     void Start()
     {
-        activeLanguage = PlayerPrefs.GetString("ActiveLanguage", "EN");
+        activeLanguage = SaveManager.saveManager.activeLanguage;
     }
 
     /// <summary>
@@ -39,8 +39,8 @@ public class MultilanguageManager : MonoBehaviour
     {
         activeLanguage = newLanguage;
 
-        PlayerPrefs.SetString("ActiveLanguage", newLanguage);
-        PlayerPrefs.SetInt("FirstTime", 1);
-        PlayerPrefs.Save();
+        SaveManager.saveManager.activeLanguage = newLanguage;
+        SaveManager.saveManager.firsTimeLanguage = true;
+        SaveManager.saveManager.SaveOptions();
     }
 }

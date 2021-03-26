@@ -2,6 +2,17 @@
 using UnityEngine;
 
 /// <summary>
+/// Class with the possible options variables that can be saved.
+/// </summary>
+public class OptionsData
+{
+    public string activeLanguage;
+    public string activeRegion;
+    public bool firsTimeLanguage;
+    public int gameVolume;
+}
+
+/// <summary>
 /// Class with the possible score variables that can be saved.
 /// </summary>
 public class ScoreData
@@ -25,6 +36,13 @@ public class SaveManager : MonoBehaviour
 {
     public static SaveManager saveManager;
 
+    [Header("Options")]
+    public string activeLanguage = "EN";
+    public string activeRegion = "eu";
+    public bool firsTimeLanguage = false;
+    public int gameVolume = 100;
+
+    [Header("Scores")]
     public int score1 = 0;
     public int[] score2 = new int[2] { 0, 0 };
     public int score3 = 0;
@@ -51,7 +69,60 @@ public class SaveManager : MonoBehaviour
 
             DontDestroyOnLoad(gameObject);
 
+            LoadOptions();
             LoadScores();
+        }
+    }
+
+    /// <summary>
+    /// Function to save options values.
+    /// </summary>
+    public void LoadOptions()
+    {
+        OptionsData data = new OptionsData();
+
+        string json;
+
+        string path = Application.persistentDataPath + "/Saves/Options.json";
+
+        if (File.Exists(path))
+        {
+            using (StreamReader reader = new StreamReader(path))
+            {
+                json = reader.ReadToEnd();
+            }
+
+            JsonUtility.FromJsonOverwrite(json, data);
+
+            activeLanguage = data.activeLanguage;
+            activeRegion = data.activeRegion;
+            firsTimeLanguage = data.firsTimeLanguage;
+            gameVolume = data.gameVolume;
+        }
+    }
+
+    /// <summary>
+    /// Function to load options values.
+    /// </summary>
+    public void SaveOptions()
+    {
+        OptionsData data = new OptionsData
+        {
+            activeLanguage = activeLanguage,
+            activeRegion = activeRegion,
+            firsTimeLanguage = firsTimeLanguage,
+            gameVolume = gameVolume,
+        };
+
+        string json = JsonUtility.ToJson(data);
+
+        string path = Application.persistentDataPath + "/Saves/Options.json";
+
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+
+        using (StreamWriter writer = new StreamWriter(fileStream))
+        {
+            writer.Write(json);
         }
     }
 
@@ -64,7 +135,7 @@ public class SaveManager : MonoBehaviour
         
         string json;
 
-        string path = Application.persistentDataPath + "/Score.json";
+        string path = Application.persistentDataPath + "/Saves/Scores.json";
 
         if (File.Exists(path))
         {
@@ -109,7 +180,7 @@ public class SaveManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(data);
 
-        string path = Application.persistentDataPath + "/Score.json";
+        string path = Application.persistentDataPath + "/Saves/Scores.json";
 
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
@@ -134,6 +205,26 @@ public class SaveManager : MonoBehaviour
         score8 = 0;
         score9 = 0;
         score10 = 0;
+
+        SaveScores();
+    }
+
+    /// <summary>
+    /// Function called to rescue the scores saved in the PlayerPrefs before using the saving in JSON.
+    /// </summary>
+    public void RescuePlayerPrefs()
+    {
+        score1 = PlayerPrefs.GetInt("HighScore1", 0);
+        score2[0] = PlayerPrefs.GetInt("HighScore2-1", 0);
+        score2[1] = PlayerPrefs.GetInt("HighScore2-2", 0);
+        score3 = PlayerPrefs.GetInt("HighScore3", 0);
+        score4 = PlayerPrefs.GetInt("HighScore4", 0);
+        score5 = PlayerPrefs.GetInt("HighScore5", 0);
+        score6 = PlayerPrefs.GetInt("HighScore6", 0);
+        score7 = PlayerPrefs.GetInt("HighScore7", 0);
+        score8 = PlayerPrefs.GetInt("HighScore8", 0);
+        score9 = PlayerPrefs.GetInt("HighScore9", 0);
+        score10 = PlayerPrefs.GetInt("HighScore10", 0);
 
         SaveScores();
     }

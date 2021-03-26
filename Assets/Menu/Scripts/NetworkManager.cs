@@ -47,12 +47,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// </summary>
     public void ConnectToServer()
     {
-        PhotonNetwork.GameVersion = "0.36";
-        PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = PlayerPrefs.GetString("ActiveRegion", "eu");
+        PhotonNetwork.GameVersion = "0.37";
+        PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = SaveManager.saveManager.activeRegion;
         PhotonNetwork.SendRate = 60;
         PhotonNetwork.SerializationRate = 60;
         PhotonNetwork.ConnectUsingSettings();
-
+        
         panelConnecting.SetActive(true);
     }
 
@@ -92,7 +92,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void JoinRoom(int roomNumber)
     {
         activeRoom = roomNumber;
-        PhotonNetwork.JoinOrCreateRoom(roomNumber.ToString(), new RoomOptions { MaxPlayers = 2 }, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(roomNumber.ToString(), new RoomOptions {MaxPlayers = 2}, TypedLobby.Default);
     }
 
     /// <summary>
