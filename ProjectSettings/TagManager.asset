@@ -51,6 +51,15 @@ TagManager:
   - Game5/Tail
   - Game1/Ground
   - Menu/SaveManager
+  - Game12/Bubble
+  - Game12/BubbleColor
+  - Game12/Spike3
+  - Game12/Spike1
+  - Game12/Spike4
+  - Game12/Magnet
+  - Game12/Spike2
+  - Game12/Destructor
+  - Game12/Spike5
   layers:
   - Default
   - TransparentFX

@@ -25,6 +25,7 @@ public class SaveManager : MonoBehaviour
     public int score8 = 0;
     public int score9 = 0;
     public int score10 = 0;
+    public int score12 = 0;
 
     private void Awake()
     {
@@ -128,6 +129,7 @@ public class SaveManager : MonoBehaviour
             score8 = data.score8;
             score9 = data.score9;
             score10 = data.score10;
+            score12 = data.score12;
         }
     }
 
@@ -147,7 +149,8 @@ public class SaveManager : MonoBehaviour
             score7 = score7,
             score8 = score8,
             score9 = score9,
-            score10 = score10
+            score10 = score10,
+            score12 = score12
         };
 
         string json = JsonUtility.ToJson(data);
@@ -177,6 +180,7 @@ public class SaveManager : MonoBehaviour
         score8 = 0;
         score9 = 0;
         score10 = 0;
+        score12 = 0;
 
         SaveScores();
     }

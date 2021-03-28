@@ -142,7 +142,7 @@ public class GameManager8 : MonoBehaviour
     }
 
     /// <summary>
-    /// Function called to load the high score from the PlayerPrefs.
+    /// Function called to load the high score.
     /// </summary>
     void LoadHighScore()
     {
@@ -151,7 +151,7 @@ public class GameManager8 : MonoBehaviour
     }
 
     /// <summary>
-    /// Function called to save the high score in the PlayerPrefs.
+    /// Function called to save the high score.
     /// </summary>
     public void SaveHighScore()
     {
