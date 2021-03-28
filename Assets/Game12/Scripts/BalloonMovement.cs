@@ -59,7 +59,6 @@ public class BalloonMovement : MonoBehaviour
             collision.gameObject.SetActive(false);
             pickUpSound.Play();
 
-            StopCoroutine(ColorMode());
             StartCoroutine(ColorMode());
         }
 
@@ -68,7 +67,6 @@ public class BalloonMovement : MonoBehaviour
             collision.gameObject.SetActive(false);
             pickUpSound.Play();
 
-            StopCoroutine(MagnetMode());
             StartCoroutine(MagnetMode());
         }
 
@@ -86,7 +84,6 @@ public class BalloonMovement : MonoBehaviour
             StopAllCoroutines();
             GameManager12.manager.GameOver();
             canMove = false;
-            h = 0;
         }
     }
 
@@ -111,12 +108,25 @@ public class BalloonMovement : MonoBehaviour
     }
 
     /// <summary>
+    /// Function that resets the player's parameters.
+    /// </summary>
+    public void ResetValues()
+    {
+        transform.position = new Vector2(0, -2);
+        canMove = true;
+        h = 0;
+        colorMode = false;
+        anim.SetBool("ColorMode", false);
+    }
+
+    /// <summary>
     /// Coroutine that activates temporary invulnerability.
     /// </summary>
     /// <returns></returns>
     IEnumerator ColorMode()
     {
         colorMode = true;
+        GameManager12.manager.colorMode = true;
 
         anim.SetBool("ColorMode", true);
 
@@ -127,6 +137,7 @@ public class BalloonMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         colorMode = false;
+        GameManager12.manager.colorMode = false;
     }
 
     /// <summary>

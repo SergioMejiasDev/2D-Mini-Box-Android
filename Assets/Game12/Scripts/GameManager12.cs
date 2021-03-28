@@ -14,9 +14,9 @@ public class GameManager12 : MonoBehaviour
     public static event Manager12Delegate StopMovement;
 
     [Header("Player")]
-    [SerializeField] GameObject player = null;
     [SerializeField] BalloonMovement playerClass = null;
     public bool magnetMode = false;
+    public bool colorMode = false;
     [SerializeField] LayerMask objetsMask = 0;
 
     [Header("Score")]
@@ -59,11 +59,11 @@ public class GameManager12 : MonoBehaviour
         score = 0;
         scoreText.text = "0";
 
-        player.transform.position = new Vector2(0, -2);
         playerClass.enabled = true;
-        playerClass.canMove = true;
+        playerClass.ResetValues();
 
         magnetMode = false;
+        colorMode = false;
 
         CleanScene();
 
@@ -181,6 +181,11 @@ public class GameManager12 : MonoBehaviour
     /// </summary>
     void EnableBubbleColor()
     {
+        if (colorMode)
+        {
+            return;
+        }
+
         GameObject bubble = ObjectPooler.SharedInstance.GetPooledObject("Game12/BubbleColor");
 
         if (bubble != null)
@@ -196,6 +201,11 @@ public class GameManager12 : MonoBehaviour
     /// </summary>
     void EnableMagnet()
     {
+        if (magnetMode)
+        {
+            return;
+        }
+
         GameObject magnet = ObjectPooler.SharedInstance.GetPooledObject("Game12/Magnet");
 
         if (magnet != null)
