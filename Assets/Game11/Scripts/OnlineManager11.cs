@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -15,16 +14,15 @@ public class OnlineManager11 : MonoBehaviourPunCallbacks
     GameObject player;
 
     [Header("Score")]
-    int score1 = 0;
+    int score1 = 1;
     [SerializeField] Text score1Text = null;
-    int score2 = 0;
+    int score2 = 1;
     [SerializeField] Text score2Text = null;
 
     [Header("Panels")]
     [SerializeField] GameObject panelMenu = null;
     [SerializeField] GameObject panelControllers = null;
     [SerializeField] GameObject panelPause = null;
-    [SerializeField] GameObject panelHelp = null;
     [SerializeField] GameObject panelLostPlayer1 = null;
     [SerializeField] GameObject waitingMessage = null;
     [SerializeField] GameObject panelVictory = null;
@@ -133,25 +131,31 @@ public class OnlineManager11 : MonoBehaviourPunCallbacks
 
         if (playerNumber == 1)
         {
-            score1 -= 1;
-            score1Text.text = score1.ToString();
+            score1 += 1;
+            score1Text.text = score1.ToString() + " / 3";
         }
 
         else if (playerNumber == 2)
         {
-            score2 -= 1;
-            score2Text.text = score2.ToString();
+            score2 += 1;
+            score2Text.text = score2.ToString() + " / 3";
         }
 
-        if (score1 == 0)
+        if (score1 == 4)
         {
+            score1 = 3;
+            score1Text.text = "3 / 3";
+
             panelVictory.SetActive(true);
             victoryText1.enabled = true;
             DestroyPlayer();
         }
 
-        else if (score2 == 0)
+        else if (score2 == 4)
         {
+            score2 = 3;
+            score2Text.text = "3 / 3";
+
             panelVictory.SetActive(true);
             victoryText2.enabled = true;
             DestroyPlayer();
@@ -164,11 +168,11 @@ public class OnlineManager11 : MonoBehaviourPunCallbacks
     [PunRPC]
     void CleanScore()
     {
-        score1 = 5;
-        score1Text.text = "5";
+        score1 = 1;
+        score1Text.text = "1 / 3";
 
-        score2 = 5;
-        score2Text.text = "5";
+        score2 = 1;
+        score2Text.text = "1 / 3";
     }
 
     /// <summary>
@@ -190,36 +194,14 @@ public class OnlineManager11 : MonoBehaviourPunCallbacks
     }
 
     /// <summary>
-    /// Function to open and close the help panel.
-    /// </summary>
-    public void Help()
-    {
-        if (!panelHelp.activeSelf)
-        {
-            panelHelp.SetActive(true);
-        }
-        else
-        {
-            panelHelp.SetActive(false);
-        }
-    }
-
-    /// <summary>
-    /// Scene change function.
-    /// </summary>
-    /// <param name="buildIndex">Number of the scene to be loaded.</param>
-    public void LoadScene(int buildIndex)
-    {
-        SceneManager.LoadScene(buildIndex);
-    }
-
-    /// <summary>
     /// Function that is called when we enter a room.
     /// </summary>
     public override void OnJoinedRoom()
     {
         panelMenu.SetActive(false);
         panelControllers.SetActive(true);
+        score1Text.enabled = true;
+        score2Text.enabled = true;
 
         NetworkManager.networkManager.SetValues();
 
@@ -288,6 +270,6 @@ public class OnlineManager11 : MonoBehaviourPunCallbacks
     /// <param name="cause"></param>
     public override void OnDisconnected(DisconnectCause cause)
     {
-        LoadScene(11);
+        GameManager11.manager.LoadScene(11);
     }
 }

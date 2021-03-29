@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03b7bbf61d22464fb2448bb6c59e5ed, type: 3}
   m_Name: Game11
   m_EditorClassIdentifier: 
-  english: 'Use the "Up" button to accelerate and "Down" to reverse. With "Left"
-    and "Right" you can turn the car.
-
-    
-
-    Try to complete 5 laps before
-    your opponent.'
-  spanish: "Utiliza el bot\xF3n \"Arriba\" para acelerar y \"Abajo\" para dar marcha
-    atr\xE1s. Con \"Izquierda\" y \"Derecha\" puedes girar el coche.\r\n\r\nIntenta
-    completar 5 vueltas antes que tu oponente."
+  english: "Use the \"Up\" button to accelerate and \"Down\" to reverse. With \"Left\"\r
+    and \"Right\" you can turn the car.\n\nIn single player mode you can try to beat
+    your own time record in one lap.\n\nIn multiplayer mode you must try to complete
+    3 laps before your opponent."
+  spanish: "Utiliza el bot\xF3n \"Arriba\" para acelerar y \"Abajo\" para dar marcha\r
+    atr\xE1s. Con \"Izquierda\" y \"Derecha\" puedes girar el coche.\n\r\nEn el modo
+    un jugador puedes intentar batir tu propio record de tiempo en una vuelta.\r\n\r\nEn
+    el modo multijugador debes intantar completar 3 vueltas antes que tu oponente."

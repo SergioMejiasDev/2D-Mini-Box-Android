@@ -13,5 +13,6 @@ public class ScoreData
     public int score8;
     public int score9;
     public int score10;
+    public int[] score11 = new int[2];
     public int score12;
 }

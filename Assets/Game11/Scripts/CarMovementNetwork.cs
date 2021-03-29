@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using Photon.Pun;
 
 /// <summary>
-/// Class that manages the movement of the car.
+/// Class that manages the movement of cars on server.
 /// </summary>
-public class CarMovement : MonoBehaviour
+public class CarMovementNetwork : MonoBehaviourPun, IPunObservable
 {
     [Header("Movement")]
     float force = 5.0f;
@@ -14,39 +15,66 @@ public class CarMovement : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] Rigidbody2D rb = null;
+    [SerializeField] PhotonView pv = null;
     [SerializeField] AudioSource hitAudio = null;
-    [SerializeField] Timer11 timer = null;
 
-    void OnEnable()
+    private void OnEnable()
     {
-        nextPoint = 1;
+        if (pv.IsMine)
+        {
+            MobileInputs11.Button += ActivateInputs;
+
+            nextPoint = 1;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (pv.IsMine)
+        {
+            MobileInputs11.Button -= ActivateInputs;
+        }
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(transform.up * force * v, ForceMode2D.Force);
+        if (pv.IsMine)
+        {
+            rb.AddForce(transform.up * force * v, ForceMode2D.Force);
+        }
     }
 
     private void Update()
     {
-        if (rb.velocity.magnitude > 0.1f)
+        if (pv.IsMine)
         {
-            transform.Rotate(0, 0, rotationSpeed * Time.deltaTime * h);
-        }
+            if (rb.velocity.magnitude > 0.1f)
+            {
+                transform.Rotate(0, 0, rotationSpeed * Time.deltaTime * h);
+            }
 
-        if (Input.GetButtonDown("Cancel"))
-        {
-            GameManager11.manager.PauseGame();
+            if (Input.GetButtonDown("Cancel"))
+            {
+                OnlineManager11.manager.PauseGame();
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        hitAudio.Play();
+        if (collision.gameObject.name == "Sprite")
+        {
+            hitAudio.Play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!pv.IsMine)
+        {
+            return;
+        }
+
         if (collision.gameObject.name == "Point1" && nextPoint == 1)
         {
             nextPoint = 2;
@@ -76,7 +104,7 @@ public class CarMovement : MonoBehaviour
         {
             nextPoint = 1;
 
-            timer.ResetTimer();
+            OnlineManager11.manager.UpdateScore(NetworkManager.networkManager.playerNumber);
         }
     }
 
@@ -84,7 +112,7 @@ public class CarMovement : MonoBehaviour
     /// Function called to activate the game's inputs through the buttons on the screen.
     /// </summary>
     /// <param name="input">1 up, 2 right, 3 down, 4 left, 5 & 6 disable.</param>
-    public void ActivateInputs(int input)
+    void ActivateInputs(int input)
     {
         switch (input)
         {
@@ -106,6 +134,25 @@ public class CarMovement : MonoBehaviour
             case 6:
                 v = 0;
                 break;
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext((Vector2)transform.position);
+            stream.SendNext(transform.rotation);
+            stream.SendNext(rb.position);
+            stream.SendNext(rb.rotation);
+        }
+
+        else
+        {
+            transform.position = (Vector2)stream.ReceiveNext();
+            transform.rotation = (Quaternion)stream.ReceiveNext();
+            rb.position = (Vector2)stream.ReceiveNext();
+            rb.rotation = (float)stream.ReceiveNext();
         }
     }
 }

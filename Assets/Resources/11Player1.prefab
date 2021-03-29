@@ -334,10 +334,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2748900389259193784}
   - component: {fileID: 2748900389259193785}
-  - component: {fileID: 2748900389259193786}
   - component: {fileID: 2748900389259193787}
   - component: {fileID: 2748900389259193780}
   - component: {fileID: 2042241678286348833}
+  - component: {fileID: -590717914364994421}
   m_Layer: 0
   m_Name: 11Player1
   m_TagString: Untagged
@@ -385,21 +385,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2748900389259193786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2748900389259193791}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04505e77a0edd24429407e34eecea8f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 2748900389259193785}
-  pv: {fileID: 2748900389259193780}
-  hitAudio: {fileID: 2042241678286348833}
 --- !u!70 &2748900389259193787
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -435,7 +420,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 0
   ObservedComponents:
-  - {fileID: 2748900389259193786}
+  - {fileID: -590717914364994421}
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -535,6 +520,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-590717914364994421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748900389259193791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd50f68b6e1c60d46938db4ad05efb81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 2748900389259193785}
+  pv: {fileID: 2748900389259193780}
+  hitAudio: {fileID: 2042241678286348833}
 --- !u!1 &2748900389321624177
 GameObject:
   m_ObjectHideFlags: 0

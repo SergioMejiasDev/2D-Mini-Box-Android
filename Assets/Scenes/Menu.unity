@@ -1067,6 +1067,7 @@ MonoBehaviour:
   score8: 0
   score9: 0
   score10: 0
+  score11: 0000000000000000
   score12: 0
 --- !u!4 &232485940
 Transform:
@@ -1151,7 +1152,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UPDATE 0.41
+  m_Text: UPDATE 0.43
 --- !u!222 &255895770
 CanvasRenderer:
   m_ObjectHideFlags: 0
