@@ -45,6 +45,7 @@ public class SaveManager : MonoBehaviour
 
             LoadOptions();
             LoadScores();
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
     }
 
