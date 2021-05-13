@@ -1,6 +1,9 @@
-﻿/// <summary>
+﻿using System;
+
+/// <summary>
 /// Class with the possible score variables that can be saved.
 /// </summary>
+[Serializable]
 public class ScoreData
 {
     public int score1;

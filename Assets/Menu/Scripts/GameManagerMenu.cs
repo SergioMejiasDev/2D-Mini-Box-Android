@@ -33,13 +33,15 @@ public class GameManagerMenu : MonoBehaviour
 
     private void Start()
     {
+        ScreenScaler.ScaleScreen();
+
         CheckVolume();
 
         UpdateRegionButton();
 
         if (!SaveManager.saveManager.firstTimeLanguage)
         {
-            SaveManager.saveManager.RescuePlayerPrefs();
+            SaveManager.saveManager.RescueJson();
             OpenPanel(panels[5]);
         }
     }

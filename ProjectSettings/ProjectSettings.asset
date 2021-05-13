@@ -128,7 +128,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.44
+  bundleVersion: 0.46
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -168,13 +168,13 @@ PlayerSettings:
   D3DHDRBitDepth: 0
   m_ColorGamuts: 00000000
   targetPixelDensity: 1000
-  resolutionScalingMode: 1
-  androidSupportedAspectRatio: 0
+  resolutionScalingMode: 0
+  androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.SergioMejias.MiniBox2D
   buildNumber: {}
-  AndroidBundleVersionCode: 44
+  AndroidBundleVersionCode: 46
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 1

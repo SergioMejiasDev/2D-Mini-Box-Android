@@ -48,6 +48,8 @@ public class GameManager8 : MonoBehaviour
     void Awake()
     {
         manager8 = this;
+
+        ScreenScaler.ScaleScreen();
     }
 
     void Start()

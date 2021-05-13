@@ -1,8 +1,9 @@
 ﻿using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 /// <summary>
-/// Class that manages saving and loading of scores in a JSON file.
+/// Class that manages saving and loading of scores and options in a binary file.
 /// </summary>
 public class SaveManager : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class SaveManager : MonoBehaviour
 
             LoadOptions();
             LoadScores();
+
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
         }
     }
@@ -56,18 +58,15 @@ public class SaveManager : MonoBehaviour
     {
         OptionsData data = new OptionsData();
 
-        string json;
-
-        string path = Application.persistentDataPath + "/Options.json";
+        string path = Application.persistentDataPath + "/Options.sav";
 
         if (File.Exists(path))
         {
-            using (StreamReader reader = new StreamReader(path))
-            {
-                json = reader.ReadToEnd();
-            }
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
 
-            JsonUtility.FromJsonOverwrite(json, data);
+            data = formatter.Deserialize(stream) as OptionsData;
+            stream.Close();
 
             activeLanguage = data.activeLanguage;
             activeRegion = data.activeRegion;
@@ -89,16 +88,15 @@ public class SaveManager : MonoBehaviour
             gameVolume = gameVolume,
         };
 
-        string json = JsonUtility.ToJson(data);
+        BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/Options.json";
+        string path = Application.persistentDataPath + "/Options.sav";
 
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
-        using (StreamWriter writer = new StreamWriter(fileStream))
-        {
-            writer.Write(json);
-        }
+        formatter.Serialize(fileStream, data);
+
+        fileStream.Close();
     }
 
     /// <summary>
@@ -107,19 +105,16 @@ public class SaveManager : MonoBehaviour
     public void LoadScores()
     {
         ScoreData data = new ScoreData();
-        
-        string json;
 
-        string path = Application.persistentDataPath + "/Scores.json";
+        string path = Application.persistentDataPath + "/Scores.sav";
 
         if (File.Exists(path))
         {
-            using (StreamReader reader = new StreamReader(path))
-            {
-                json = reader.ReadToEnd();
-            }
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
 
-            JsonUtility.FromJsonOverwrite(json, data);
+            data = formatter.Deserialize(stream) as ScoreData;
+            stream.Close();
 
             score1 = data.score1;
             score2 = data.score2;
@@ -157,16 +152,15 @@ public class SaveManager : MonoBehaviour
             score12 = score12
         };
 
-        string json = JsonUtility.ToJson(data);
+        BinaryFormatter formatter = new BinaryFormatter();
 
-        string path = Application.persistentDataPath + "/Scores.json";
+        string path = Application.persistentDataPath + "/Scores.sav";
 
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
-        using (StreamWriter writer = new StreamWriter(fileStream))
-        {
-            writer.Write(json);
-        }
+        formatter.Serialize(fileStream, data);
+
+        fileStream.Close();
     }
 
     /// <summary>
@@ -191,21 +185,38 @@ public class SaveManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Function called to rescue the scores saved in the PlayerPrefs before using the saving in JSON.
+    /// Function called to rescue the scores saved in the JSON file before using the saving in bynary.
     /// </summary>
-    public void RescuePlayerPrefs()
+    public void RescueJson()
     {
-        score1 = PlayerPrefs.GetInt("HighScore1", 0);
-        score2[0] = PlayerPrefs.GetInt("HighScore2-1", 0);
-        score2[1] = PlayerPrefs.GetInt("HighScore2-2", 0);
-        score3 = PlayerPrefs.GetInt("HighScore3", 0);
-        score4 = PlayerPrefs.GetInt("HighScore4", 0);
-        score5 = PlayerPrefs.GetInt("HighScore5", 0);
-        score6 = PlayerPrefs.GetInt("HighScore6", 0);
-        score7 = PlayerPrefs.GetInt("HighScore7", 0);
-        score8 = PlayerPrefs.GetInt("HighScore8", 0);
-        score9 = PlayerPrefs.GetInt("HighScore9", 0);
-        score10 = PlayerPrefs.GetInt("HighScore10", 0);
+        ScoreData data = new ScoreData();
+
+        string json;
+
+        string path = Application.persistentDataPath + "/Scores.json";
+
+        if (File.Exists(path))
+        {
+            using (StreamReader reader = new StreamReader(path))
+            {
+                json = reader.ReadToEnd();
+            }
+
+            JsonUtility.FromJsonOverwrite(json, data);
+
+            score1 = data.score1;
+            score2 = data.score2;
+            score3 = data.score3;
+            score4 = data.score4;
+            score5 = data.score5;
+            score6 = data.score6;
+            score7 = data.score7;
+            score8 = data.score8;
+            score9 = data.score9;
+            score10 = data.score10;
+            score11 = data.score11;
+            score12 = data.score12;
+        }
 
         SaveScores();
     }

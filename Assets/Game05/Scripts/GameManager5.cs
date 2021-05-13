@@ -44,41 +44,11 @@ public class GameManager5 : MonoBehaviour
     [SerializeField] GameObject waiting = null;
     #endregion
 
-    /// <summary>
-    /// Function that searches for a random position on the plane and checks if it is available.
-    /// </summary>
-    /// <returns>The vector where the objects will be instantiated.</returns>
-    Vector2 SpawnVector()
-    {
-        int x = (int)Random.Range(borderLeft.position.x + 1, borderRight.position.x - 1);
-
-        int y = (int)Random.Range(borderBottom.position.y + 1, borderTop.position.y - 1);
-
-        if (Physics2D.OverlapCircle(new Vector2(x, y), 0.5f, snakeMask))
-        {
-            spawnAttemps += 1;
-
-            if (spawnAttemps > 20)
-            {
-                spawnAttemps = 0;
-
-                return new Vector2(x, y);
-            }
-
-            return SpawnVector();
-        }
-
-        else
-        {
-            spawnAttemps = 0;
-
-            return new Vector2(x, y);
-        }
-    }
-
     private void Awake()
     {
         manager5 = this;
+
+        ScreenScaler.ScaleScreen();
     }
 
     void Start()
@@ -126,6 +96,38 @@ public class GameManager5 : MonoBehaviour
 
         Spawn();
         SpawnRed();
+    }
+
+    /// <summary>
+    /// Function that searches for a random position on the plane and checks if it is available.
+    /// </summary>
+    /// <returns>The vector where the objects will be instantiated.</returns>
+    Vector2 SpawnVector()
+    {
+        int x = (int)Random.Range(borderLeft.position.x + 1, borderRight.position.x - 1);
+
+        int y = (int)Random.Range(borderBottom.position.y + 1, borderTop.position.y - 1);
+
+        if (Physics2D.OverlapCircle(new Vector2(x, y), 0.5f, snakeMask))
+        {
+            spawnAttemps += 1;
+
+            if (spawnAttemps > 20)
+            {
+                spawnAttemps = 0;
+
+                return new Vector2(x, y);
+            }
+
+            return SpawnVector();
+        }
+
+        else
+        {
+            spawnAttemps = 0;
+
+            return new Vector2(x, y);
+        }
     }
 
     /// <summary>

@@ -35,6 +35,8 @@ public class GameManager11 : MonoBehaviour
     private void Awake()
     {
         manager = this;
+
+        ScreenScaler.ScaleScreen();
     }
 
     void Start()
