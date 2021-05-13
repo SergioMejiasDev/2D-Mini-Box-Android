@@ -36,7 +36,7 @@ public class GameManager11 : MonoBehaviour
     {
         manager = this;
 
-        ScreenScaler.ScaleScreen();
+        LetterBoxer.AddLetterBoxingCamera();
     }
 
     void Start()

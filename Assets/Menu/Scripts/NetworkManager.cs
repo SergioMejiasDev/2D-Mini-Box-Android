@@ -47,7 +47,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     /// </summary>
     public void ConnectToServer()
     {
-        PhotonNetwork.GameVersion = "0.47";
+        PhotonNetwork.GameVersion = "0.48";
         PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = SaveManager.saveManager.activeRegion;
         PhotonNetwork.SendRate = 60;
         PhotonNetwork.SerializationRate = 60;

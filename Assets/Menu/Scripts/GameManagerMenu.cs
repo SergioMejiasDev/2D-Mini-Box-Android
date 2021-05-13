@@ -33,7 +33,7 @@ public class GameManagerMenu : MonoBehaviour
 
     private void Start()
     {
-        ScreenScaler.ScaleScreen();
+        LetterBoxer.AddLetterBoxingCamera();
 
         CheckVolume();
 
